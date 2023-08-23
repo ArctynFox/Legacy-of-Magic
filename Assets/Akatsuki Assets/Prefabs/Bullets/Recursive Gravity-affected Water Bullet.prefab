@@ -1,0 +1,136 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-7484580833281222120
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8697538171322719061}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 922dd6169b764b24d806bb5f614b53d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletType: {fileID: 8796589397641942734, guid: 354c6565f2a17554993402832e95f2c3, type: 3}
+  moveSpeed: 5
+  spawnsPerSecond: 1
+  bulletSpawnRadius: 0.25
+  arcCount: 2
+  arcDegrees: 90
+  arcCenter: 0
+  isOrbit: 0
+  orbitAngle: 0
+  orbitStopTime: 99
+  shootAtPlayer: 0
+  lineCount: 1
+  deltaSpeed: 1
+  bulletSoundName: 
+  secondsBeforeFirstSpawn: 0
+--- !u!114 &2381314396820702554
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8697538171322719061}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f2b1d7f7dfe9f246adbdf7015d26518, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gravityScript: {fileID: 4296421869983393858}
+  moveScript: {fileID: 2586300202762358373}
+  spawnScript: {fileID: -7484580833281222120}
+--- !u!1001 &189185895394250139
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -5098097332417108519, guid: 354c6565f2a17554993402832e95f2c3, type: 3}
+      propertyPath: timeMultiplier
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 4289994956103706643, guid: 354c6565f2a17554993402832e95f2c3, type: 3}
+      propertyPath: seconds
+      value: 1.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 8492866106067563219, guid: 354c6565f2a17554993402832e95f2c3, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8492866106067563219, guid: 354c6565f2a17554993402832e95f2c3, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8492866106067563219, guid: 354c6565f2a17554993402832e95f2c3, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8492866106067563219, guid: 354c6565f2a17554993402832e95f2c3, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8492866106067563219, guid: 354c6565f2a17554993402832e95f2c3, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8492866106067563219, guid: 354c6565f2a17554993402832e95f2c3, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8492866106067563219, guid: 354c6565f2a17554993402832e95f2c3, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8492866106067563219, guid: 354c6565f2a17554993402832e95f2c3, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8492866106067563219, guid: 354c6565f2a17554993402832e95f2c3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8492866106067563219, guid: 354c6565f2a17554993402832e95f2c3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8492866106067563219, guid: 354c6565f2a17554993402832e95f2c3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8796589397641942734, guid: 354c6565f2a17554993402832e95f2c3, type: 3}
+      propertyPath: m_Name
+      value: Recursive Gravity-affected Water Bullet
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 354c6565f2a17554993402832e95f2c3, type: 3}
+--- !u!1 &8697538171322719061 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8796589397641942734, guid: 354c6565f2a17554993402832e95f2c3, type: 3}
+  m_PrefabInstance: {fileID: 189185895394250139}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2586300202762358373 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2397179187524191230, guid: 354c6565f2a17554993402832e95f2c3, type: 3}
+  m_PrefabInstance: {fileID: 189185895394250139}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8697538171322719061}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0be334e70ce179841857354002b3297c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4296421869983393858 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: -5098097332417108519, guid: 354c6565f2a17554993402832e95f2c3, type: 3}
+  m_PrefabInstance: {fileID: 189185895394250139}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8697538171322719061}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a0ad27cbee80e54f81858a04a53a2d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
