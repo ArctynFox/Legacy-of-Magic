@@ -1,0 +1,3 @@
+The main thing you need to worry about is how to use scripts I've made to spawn bullets, and how to modify bullet trajectory and parameters.
+
+To spawn bullets from a specific point, create an empty object and add the Bullet Instantiator script as a component to it.
