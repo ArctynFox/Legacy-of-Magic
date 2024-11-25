@@ -4,7 +4,19 @@ This game is a Touhou-inspired danmaku game using the same arcade-continue style
 This project was developed in 8 weeks by myself, the sole developer. Only the art and some of the music was also outsourced, while some I composed myself.
 
 # Screenshots
-Coming soon.
+![1](https://github.com/user-attachments/assets/2a126f0f-3620-4281-89ee-889ba719a08b)
+Each enemy type, which can be distinguished by their sprite, has a different attack pattern, and this pattern becomes more difficult each stage.
+
+![2](https://github.com/user-attachments/assets/76594e50-b03e-44e7-9efc-61002020496e)
+There is a boss for each stage. This image depicts the boss from the first stage.
+
+![3](https://github.com/user-attachments/assets/38d56f4b-69e7-4d01-b6e5-b4d0b2ec0ec7)
+
+![4](https://github.com/user-attachments/assets/82dbdd49-d034-4a29-bd74-722057b93d77)
+In each stage, there is dialogue before and after the stage’s boss fight.
+
+![5](https://github.com/user-attachments/assets/7c4e34f3-1d59-4731-b71c-f8666970b61d)
+
 
 ---
 
