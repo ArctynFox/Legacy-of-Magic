@@ -1,6 +1,3 @@
-# !! WARNING !!
-The latest release has not yet been patched to fix the recent Unity RCE vulnerability. I plan to make a small update soon.
-
 # Legacy of Magic
 This game is a Touhou-inspired danmaku game using the same arcade-continue style in which you, an inquisitor of the mage association, must uncover the cause of a strange series of anachronities occuring within the kingdom. Of what nature is this disaster? Who or what may be causing it? Discover for yourself as you graze past the magic of various people and creatures in this 2.5d bullet hell!
 
