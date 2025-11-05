@@ -60,7 +60,7 @@ public class BossCollision : MonoBehaviour
         //param.bossDialoguePre = bossDialoguePre;
         health = phaseHealths[0];//the next few lines are all to set parameters and initiate pre-fight dialogue
         maxHealth = phaseHealths[0];
-        bossDialoguePre = param.bossSpawned(bossDialoguePre);
+        bossDialoguePre = param.instantiatePreBossDialogue(bossDialoguePre);
         preDialogue = bossDialoguePre.GetComponentInChildren<AdvanceDialogue>();
         preDialogue.boss = gameObject;
         emitters = new GameObject[emittersPrefabs.Length];

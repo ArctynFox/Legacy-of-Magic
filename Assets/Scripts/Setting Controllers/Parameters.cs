@@ -1,13 +1,12 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.Animations;
 using UnityEngine.SceneManagement;
 using UnityEngine.EventSystems;
 
 public class Parameters : MonoBehaviour
 {
+    public static Parameters singleton;
     public int lifeSetting = 3;
     public int lives = 3;
     GameObject[] hearts = new GameObject[5];
@@ -33,48 +32,77 @@ public class Parameters : MonoBehaviour
     
     private void Awake()
     {
-        if(GameObject.FindGameObjectsWithTag("gameParams").Length > 1)
+        //destroy self if the parameters script already exists in the scene
+        if(singleton != null)
         {
             Destroy(gameObject);
-        }
-        for (int i = 0; i < hearts.Length; i++)
+        } else
         {
-            hearts[i] = GameObject.Find("Life " + i);
-            spells[i] = GameObject.Find("Bomb " + i);
+            singleton = this;
         }
+
+            //DEBUG: this only does anything if starting the game from a scene other than the title screen
+            //get references to the bomb and heart graphics and updates their display based on the current life and bomb count
+            for (int i = 0; i < hearts.Length; i++)
+            {
+                hearts[i] = GameObject.Find("Life " + i);
+                spells[i] = GameObject.Find("Bomb " + i);
+            }
+        if (hearts[0] != null && spells[0] != null)
+        {
+            updateHeartAndBombDisplay();
+        }
+
         DontDestroyOnLoad(gameObject);
-        
-        //playerCont = GameObject.Find("Player").GetComponent<PlayerController>();
+    }
+
+    public void setLifeGraphicArray(GameObject[] newArray)
+    {
+        hearts = newArray;
+    }
+    
+    public void setBombGraphicArray(GameObject[] newArray)
+    {
+        spells = newArray;
     }
 
     public void setLives()
     {
         lives = lifeSetting - 1;
+        updateHeartAndBombDisplay();
     }
 
     public void setBombs()
     {
         bombs = bombSetting - 1;
+        updateBombDisplay();
     }
 
-    private void Update()
+    bool outOfLives()
     {
-        if(lives < 0 && stage > 0 && stage < 6 && (!continueScreen.activeSelf && !gameOverScreen.activeSelf))
-        {
-            EventSystem.current.SetSelectedGameObject(null);
-            Time.timeScale = 0;
-            if (continues > 0)
-            {
-                continueScreen.SetActive(true);
-                GameObject.Find("RemainingContinues").GetComponent<Text>().text = continues + " continues remaining";
-                EventSystem.current.SetSelectedGameObject(continueFirstButton);
-            } 
-            else
-            {
-                gameOverScreen.SetActive(true);
-                EventSystem.current.SetSelectedGameObject(gameOverFirstButton);
-            }
-        }
+        return lives < 0 && stage > 0 && stage < 6;
+    }
+
+    bool menusAreNotVisible()
+    {
+        return !continueScreen.activeSelf && !gameOverScreen.activeSelf;
+    }
+
+    void displayContinueScreen()
+    {
+        continueScreen.SetActive(true);
+        GameObject.Find("RemainingContinues").GetComponent<Text>().text = continues + " continues remaining";
+        EventSystem.current.SetSelectedGameObject(continueFirstButton);
+    }
+
+    void displayGameOverScreen()
+    {
+        gameOverScreen.SetActive(true);
+        EventSystem.current.SetSelectedGameObject(gameOverFirstButton);
+    }
+
+    public void updateHeartAndBombDisplay()
+    {
         if (hearts[0] != null)
         {
             for (int i = 0; i < hearts.Length; i++)
@@ -87,6 +115,17 @@ public class Parameters : MonoBehaviour
                 {
                     hearts[i].SetActive(false);
                 }
+            }
+        }
+        updateBombDisplay();
+    }
+    
+    public void updateBombDisplay()
+    {
+        if (spells[0] != null)
+        {
+            for (int i = 0; i < spells.Length; i++)
+            {
                 if (i <= bombs)
                 {
                     spells[i].SetActive(true);
@@ -99,7 +138,28 @@ public class Parameters : MonoBehaviour
         }
     }
 
-    public GameObject bossSpawned(GameObject preDialogue)
+    public void playerTookDamage()
+    {
+        lives--;
+
+        //if lives have run out, display continue or game over screen based on number of remaining continues
+        if(outOfLives() && menusAreNotVisible())
+        {
+            EventSystem.current.SetSelectedGameObject(null);
+            Time.timeScale = 0;
+            if (continues > 0)
+            {
+                displayContinueScreen();
+            } 
+            else
+            {
+                displayGameOverScreen();
+            }
+        }
+       updateHeartAndBombDisplay(); 
+    }
+
+    public GameObject instantiatePreBossDialogue(GameObject preDialogue)
     {
         if (!isBoss)
         {
@@ -115,6 +175,7 @@ public class Parameters : MonoBehaviour
 
     }
 
+    //check the stage variable for which scene to transition to and initiate the scene transition
     public void NextStage()
     {
         switch (stage)
@@ -149,11 +210,14 @@ public class Parameters : MonoBehaviour
                 stage = 0;
                 break;
         }
-        StartCoroutine("StageSwitch");
+        StartCoroutine(StageSwitch());
     }
 
+    //load the next scene
     IEnumerator StageSwitch()
     {
+        //pre-scene change setup------------------------------
+        //fade the screen to black
         float alpha = 0;
         while(alpha <= 1)
         {
@@ -161,32 +225,37 @@ public class Parameters : MonoBehaviour
             fadeTransition.color = new Color(0, 0, 0, alpha);
             yield return null;
         }
+
+        //disable boss state
         isBoss = false;
+        //pre-scene change setup END--------------------------
+
+        //load the scene and increment the stage counter
         SceneManager.LoadScene(sceneName);
         stage++;
+
+        //post-scene change setup-----------------------------
         yield return new WaitForSeconds(.25f);
-        fadeTransition = GameObject.Find("FadeTransition").GetComponent<Image>();
+        //if current scene is a gameplay scene
         if (stage > 0 && stage < 6)
         {
+            //update UI elements for current gameplay info
             GameObject stageNameDisp = GameObject.Find("Stage Indicator YYK");
             stageNameDisp.GetComponent<Text>().text = stageName;
             stageNameDisp.transform.parent.gameObject.GetComponent<Text>().text = stageName;
-            /*continueScreen = GameObject.Find("Continue Menu");
-            continueFirstButton = GameObject.Find("Continue Button");
-            gameOverScreen = GameObject.Find("Game Over Menu");
-            gameOverFirstButton = GameObject.Find("Restart Button");*/
             playerCont = GameObject.Find("Player").GetComponent<PlayerController>();
-            for (int i = 0; i < hearts.Length; i++)
-            {
-                hearts[i] = GameObject.Find("Life " + i);
-                spells[i] = GameObject.Find("Bomb " + i);
-            }
+            updateHeartAndBombDisplay();
         }
+
+        fadeTransition = GameObject.Find("FadeTransition").GetComponent<Image>();
+
+        //fade the screen from black
         while (alpha >= 0)
         {
             alpha -= .02f;
             fadeTransition.color = new Color(0, 0, 0, alpha);
             yield return null;
         }
+        //post-scene change setup END------------------------
     }
 }

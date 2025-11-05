@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -24,6 +23,31 @@ public class PlayerController : MonoBehaviour
         param.playerCont = this;
     }
 
+    void useBomb()
+    {
+        if(!spellCooldown && param.bombs >= 0)
+        {
+            Instantiate(spell, transform);
+            param.bombs--;
+            param.updateBombDisplay();
+            StartCoroutine(bombInvulnerability());
+        }
+    }
+
+    void startFire()
+    {
+        emitter.SetActive(true);
+        emitter2.SetActive(true);
+        emitter3.SetActive(true);
+    }
+
+    void stopFire()
+    {
+        emitter.SetActive(false);
+        emitter2.SetActive(false);
+        emitter3.SetActive(false);
+    }
+
     // Update is called once per frame
     void Update() //input
     {
@@ -31,22 +55,16 @@ public class PlayerController : MonoBehaviour
         {
             if (Input.GetKey("z"))
             {
-                emitter.SetActive(true);
-                emitter2.SetActive(true);
-                emitter3.SetActive(true);
+                startFire();
             }
             else
             {
-                emitter.SetActive(false);
-                emitter2.SetActive(false);
-                emitter3.SetActive(false);
+                stopFire();
             }
 
-            if (Input.GetKeyDown("x") && !spellCooldown && param.bombs >= 0)
+            if (Input.GetKeyDown("x"))
             {
-                Instantiate(spell, transform);
-                param.bombs--;
-                StartCoroutine(bombInvulnerability());
+                useBomb();
             }
         }
         else

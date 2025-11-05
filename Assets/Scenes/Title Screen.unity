@@ -576,12 +576,12 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1873852897}
-  m_Father: {fileID: 644828662}
-  m_RootOrder: 1
+  m_Father: {fileID: 2130182358}
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 642.58, y: -387.09998}
+  m_AnchoredPosition: {x: 323.00003, y: 0.000061035156}
   m_SizeDelta: {x: 546, y: 1028}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &192615684
@@ -888,7 +888,7 @@ RectTransform:
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &412784876
 Animator:
-  serializedVersion: 3
+  serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -901,10 +901,12 @@ Animator:
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &412784877
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1530,7 +1532,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: A timely disaster
+  m_Text: A Timely Disaster
 --- !u!222 &617743036
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1569,7 +1571,6 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 811616321}
-  - {fileID: 192615683}
   m_Father: {fileID: 2130182358}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4776,16 +4777,26 @@ MonoBehaviour:
   m_GameObject: {fileID: 2111145660}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
+  m_Script: {fileID: 11500000, guid: 01614664b831546d2ae94a42149d80ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HorizontalAxis: Horizontal
-  m_VerticalAxis: Vertical
-  m_SubmitButton: Submit
-  m_CancelButton: Cancel
-  m_InputActionsPerSecond: 10
-  m_RepeatDelay: 0.5
-  m_ForceModuleActive: 0
+  m_MoveRepeatDelay: 0.5
+  m_MoveRepeatRate: 0.1
+  m_XRTrackingOrigin: {fileID: 0}
+  m_ActionsAsset: {fileID: -944628639613478452, guid: 62adaca005a0e93489ce06ad7a96a7dc, type: 3}
+  m_PointAction: {fileID: 0}
+  m_MoveAction: {fileID: -5164451127659368751, guid: 62adaca005a0e93489ce06ad7a96a7dc, type: 3}
+  m_SubmitAction: {fileID: -6064871977694500736, guid: 62adaca005a0e93489ce06ad7a96a7dc, type: 3}
+  m_CancelAction: {fileID: -1458160489755052434, guid: 62adaca005a0e93489ce06ad7a96a7dc, type: 3}
+  m_LeftClickAction: {fileID: 0}
+  m_MiddleClickAction: {fileID: 0}
+  m_RightClickAction: {fileID: 0}
+  m_ScrollWheelAction: {fileID: 0}
+  m_TrackedDevicePositionAction: {fileID: 0}
+  m_TrackedDeviceOrientationAction: {fileID: 0}
+  m_DeselectOnBackgroundClick: 1
+  m_PointerBehavior: 0
+  m_CursorLockBehavior: 0
 --- !u!114 &2111145662
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4969,7 +4980,7 @@ GameObject:
   m_IsActive: 1
 --- !u!95 &2130182355
 Animator:
-  serializedVersion: 3
+  serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -4982,10 +4993,12 @@ Animator:
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!222 &2130182357
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5010,6 +5023,7 @@ RectTransform:
   - {fileID: 1821193154}
   - {fileID: 2127356267}
   - {fileID: 1184102575}
+  - {fileID: 192615683}
   m_Father: {fileID: 2063301885}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

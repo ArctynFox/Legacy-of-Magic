@@ -9,6 +9,7 @@ public class PlayPause : MonoBehaviour
 
     public GameObject pauseMenu;
     public GameObject continueMenu;
+    public GameObject gameOverMenu;
     public string menuSceneName = "Title Screen";
     public string restartSceneName = "Stage Scene";
 
@@ -33,7 +34,7 @@ public class PlayPause : MonoBehaviour
             {
                 Resume();
             }
-            else if(!continueMenu.activeSelf)
+            else if(!continueMenu.activeSelf && !gameOverMenu.activeSelf)
             {
                 Pause(firstSelected);
             }
