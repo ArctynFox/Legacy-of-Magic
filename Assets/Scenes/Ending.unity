@@ -632,7 +632,7 @@ MonoBehaviour:
   lives: 0
   bombSetting: 2
   bombs: 0
-  continues: 4
+  continues: 5
   stage: 6
   sceneName: 
   score: 0
@@ -643,7 +643,6 @@ MonoBehaviour:
   continueFirstButton: {fileID: 0}
   gameOverScreen: {fileID: 0}
   gameOverFirstButton: {fileID: 0}
-  playerCont: {fileID: 0}
   bossDialoguePre: {fileID: 0}
   canvas: {fileID: 0}
 --- !u!4 &1471790467

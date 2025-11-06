@@ -8,6 +8,6 @@ public class AccessParamImmediate : MonoBehaviour
     void Awake()
     {
         GetComponent<Image>().color = new Color(0, 0, 0, 1);
-        GameObject.Find("gameParameters").GetComponent<Parameters>().fadeTransition = GetComponent<Image>();
+        Parameters.singleton.fadeTransition = GetComponent<Image>();
     }
 }

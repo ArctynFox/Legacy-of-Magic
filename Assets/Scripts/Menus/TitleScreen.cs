@@ -4,7 +4,6 @@ using UnityEngine.EventSystems;
 public class TitleScreen : MonoBehaviour
 {
     public GameObject gameParameters;
-    Parameters param;
 
     public GameObject mainMenu;
     public GameObject options;
@@ -14,8 +13,6 @@ public class TitleScreen : MonoBehaviour
 
     private void Start()
     {
-        gameParameters = GameObject.Find("gameParameters");
-        param = gameParameters.GetComponent<Parameters>();
         EventSystem.current.SetSelectedGameObject(null);
         EventSystem.current.SetSelectedGameObject(menuFirstButton);
         
@@ -24,11 +21,11 @@ public class TitleScreen : MonoBehaviour
     public void StartGame()
     {
         Debug.Log("Starting game.");
-        param.setLives();
-        param.setBombs();
-        param.stage = 0;
-        param.score = 0;
-        param.NextStage();
+        Parameters.singleton.setLives();
+        Parameters.singleton.setBombs();
+        Parameters.singleton.stage = 0;
+        Parameters.singleton.score = 0;
+        Parameters.singleton.NextStage();
     }
 
     public void Options()

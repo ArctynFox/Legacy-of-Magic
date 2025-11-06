@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.EventSystems;
 
 public class PlayPause : MonoBehaviour
@@ -15,14 +12,11 @@ public class PlayPause : MonoBehaviour
 
     public GameObject firstSelected;
 
-    Parameters param;
-
     // Start is called before the first frame update
     void Start()
     {
         Time.timeScale = 1;
-        param = GameObject.Find("gameParameters").GetComponent<Parameters>();
-        param.canvas = gameObject;
+        Parameters.singleton.canvas = gameObject;
     }
 
     // Update is called once per frame
@@ -59,10 +53,10 @@ public class PlayPause : MonoBehaviour
 
     public void continueButton()
     {
-        param.score = 0;
-        param.continues--;
-        Debug.Log("Using a continue. " + param.continues + " continues remaining.");
-        param.setLives();
+        Parameters.singleton.score = 0;
+        Parameters.singleton.continues--;
+        Debug.Log("Using a continue. " + Parameters.singleton.continues + " continues remaining.");
+        Parameters.singleton.setLives();
         continueMenu.SetActive(false); 
         Time.timeScale = 1;
     }
@@ -70,18 +64,18 @@ public class PlayPause : MonoBehaviour
     public void Retry()
     {
         Debug.Log("Restarting from stage 1.");
-        param.score = 0;
-        param.setLives();
-        param.setBombs();
-        param.continues = 5;
-        param.stage = 0;
-        param.NextStage();
+        Parameters.singleton.score = 0;
+        Parameters.singleton.setLives();
+        Parameters.singleton.setBombs();
+        Parameters.singleton.continues = 5;
+        Parameters.singleton.stage = 0;
+        Parameters.singleton.NextStage();
     }
 
     public void ReturnToMenu()
     {
         Debug.Log("Returning to Main Menu.");
-        param.stage = -1;
-        param.NextStage();
+        Parameters.singleton.stage = -1;
+        Parameters.singleton.NextStage();
     }
 }

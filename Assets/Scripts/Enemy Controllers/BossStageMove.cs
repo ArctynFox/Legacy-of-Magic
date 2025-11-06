@@ -4,21 +4,15 @@ using UnityEngine;
 
 public class BossStageMove : MonoBehaviour
 {
-    Parameters param;
 
     public GameObject[] paths = new GameObject[3];
 
     public Vector3 movement = new Vector3(-.5f, 0, 0);
     bool fixLocation = false;
 
-    void Start()
-    {
-        param = GameObject.Find("gameParameters").GetComponent<Parameters>();
-    }
-
     void FixedUpdate()
     {
-        if (!param.isBoss)
+        if (!Parameters.singleton.isBoss)
         {
             if (transform.position.x >= -120)
             {

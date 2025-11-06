@@ -15,17 +15,17 @@ public class Parameters : MonoBehaviour
     GameObject[] spells = new GameObject[5];
     public int continues = 5;
     public int stage = 0;
-    string stageName = "title";
-    public string sceneName;
+    string stageName = "Title Screen";
+    public string sceneName = "Title Screen";
     public int score = 0;
     public bool isBoss = false;
     public bool isBossDead = false;
+    public bool stageSwitchInitiated = false;
     public Image fadeTransition;
     public GameObject continueScreen;
     public GameObject continueFirstButton;
     public GameObject gameOverScreen;
     public GameObject gameOverFirstButton;
-    public PlayerController playerCont;
     public GameObject bossDialoguePre;
     public GameObject canvas;
 
@@ -41,19 +41,27 @@ public class Parameters : MonoBehaviour
             singleton = this;
         }
 
-            //DEBUG: this only does anything if starting the game from a scene other than the title screen
-            //get references to the bomb and heart graphics and updates their display based on the current life and bomb count
-            for (int i = 0; i < hearts.Length; i++)
-            {
-                hearts[i] = GameObject.Find("Life " + i);
-                spells[i] = GameObject.Find("Bomb " + i);
-            }
+        //DEBUG: this only does anything if starting the game from a scene other than the title screen
+        //get references to the bomb and heart graphics and updates their display based on the current life and bomb count
+        for (int i = 0; i < hearts.Length; i++)
+        {
+            hearts[i] = GameObject.Find("Life " + i);
+            spells[i] = GameObject.Find("Bomb " + i);
+        }
         if (hearts[0] != null && spells[0] != null)
         {
             updateHeartAndBombDisplay();
         }
 
         DontDestroyOnLoad(gameObject);
+    }
+
+    private void OnDestroy()
+    {
+        if(singleton == this)
+        {
+            singleton = null;
+        }
     }
 
     public void setLifeGraphicArray(GameObject[] newArray)
@@ -164,7 +172,7 @@ public class Parameters : MonoBehaviour
         if (!isBoss)
         {
             isBoss = true;
-            playerCont.enemyCardActive = true;
+            PlayerController.singleton.firingDisabled = true;
             bossDialoguePre = Instantiate(preDialogue, canvas.transform);
             return bossDialoguePre;
         }
@@ -178,6 +186,9 @@ public class Parameters : MonoBehaviour
     //check the stage variable for which scene to transition to and initiate the scene transition
     public void NextStage()
     {
+        if(stageSwitchInitiated) { return; }
+        stageSwitchInitiated = true;
+
         switch (stage)
         {
             case 5:
@@ -243,7 +254,6 @@ public class Parameters : MonoBehaviour
             GameObject stageNameDisp = GameObject.Find("Stage Indicator YYK");
             stageNameDisp.GetComponent<Text>().text = stageName;
             stageNameDisp.transform.parent.gameObject.GetComponent<Text>().text = stageName;
-            playerCont = GameObject.Find("Player").GetComponent<PlayerController>();
             updateHeartAndBombDisplay();
         }
 
@@ -256,6 +266,8 @@ public class Parameters : MonoBehaviour
             fadeTransition.color = new Color(0, 0, 0, alpha);
             yield return null;
         }
+
+        stageSwitchInitiated = false;
         //post-scene change setup END------------------------
     }
 }
