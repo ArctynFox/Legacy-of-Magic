@@ -19,7 +19,6 @@ public class Parameters : MonoBehaviour
     public string sceneName = "Title Screen";
     public int score = 0;
     public bool isBoss = false;
-    public bool isBossDead = false;
     public bool stageSwitchInitiated = false;
     public Image fadeTransition;
     public GameObject continueScreen;
@@ -177,7 +176,7 @@ public class Parameters : MonoBehaviour
         if (!isBoss)
         {
             isBoss = true;
-            PlayerController.singleton.firingDisabled = true;
+            PlayerController.singleton.DisableDestructiveInputActions();
             bossDialoguePre = Instantiate(preDialogue, canvas.transform);
             return bossDialoguePre;
         }

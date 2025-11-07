@@ -1,23 +1,30 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
     public static PlayerController singleton;
 
-    // Start is called before the first frame update
-    public float moveSpeed = 5f;
+    InputAction fire;
+    InputAction bomb;
+    InputAction movementInput;
+    InputAction focus;
+
+    public float moveSpeed = 7f;
+    public float moveSpeedNormal = 7f;
+    public float moveSpeedFocused = 3.5f;
 
     public GameObject emitter;
     public GameObject emitter2;
     public GameObject emitter3;
     public GameObject spell;
-    public bool firingDisabled = false;
-    public bool isPostBoss = false;
-    bool spellCooldown = false;
-    int framesSinceEnemyCardStart = 0;
+    //public bool firingDisabled = false;
+    //public bool isPostBoss = false;
+    //bool spellCooldown = false;
+    //int framesSinceEnemyCardStart = 0;
 
-    Vector3 movement;
+    Vector3 movementVector;
 
     private void Awake()
     {
@@ -35,9 +42,122 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    void UseBomb()
+    void EnableEmitters()
     {
-        if(!spellCooldown && Parameters.singleton.bombs >= 0)
+        emitter.SetActive(true);
+        emitter2.SetActive(true);
+        emitter3.SetActive(true);
+    }
+
+    void DisableEmitters()
+    {
+        emitter.SetActive(false);
+        emitter2.SetActive(false);
+        emitter3.SetActive(false);
+    }
+
+    //Input action handling----------------------------------------
+    private void OnEnable()
+    {
+        SetupAllInputActions();
+        EnableAllInputActions();
+    }
+
+    private void OnDisable()
+    {
+        DisableAllInputActions();
+    }
+
+    void SetupAllInputActions()
+    {
+        fire = InputManager.inputActions.Default.Fire;
+        bomb = InputManager.inputActions.Default.Bomb;
+        movementInput = InputManager.inputActions.Default.Movement;
+        focus = InputManager.inputActions.Default.Focus;
+    }
+
+    public void EnableAllInputActions()
+    {
+        EnableDestructiveInputActions();
+        EnableMovementActions();
+        
+    }
+
+    public void DisableAllInputActions()
+    {
+        DisableDestructiveInputActions();
+        DisableMovementActions();
+    }
+
+    public void EnableDestructiveInputActions()
+    {
+        EnableFireAction();
+        EnableBombAction();
+    }
+
+    public void DisableDestructiveInputActions()
+    {
+        DisableFireAction();
+        DisableBombAction();
+        DisableEmitters();
+    }
+
+    public void EnableMovementActions()
+    {
+        focus.performed += OnFocusPressed;
+        focus.canceled += OnFocusReleased;
+        focus.Enable();
+        movementInput.Enable();
+    }
+
+    public void DisableMovementActions()
+    {
+        focus.performed -= OnFocusPressed;
+        focus.canceled -= OnFocusReleased;
+        focus.Disable();
+        movementInput.Disable();
+    }
+
+    void EnableFireAction()
+    {
+        fire.performed += OnFirePressed;
+        fire.canceled += OnFireReleased;
+        fire.Enable();
+    }
+
+    void DisableFireAction()
+    {
+        fire.performed -= OnFirePressed;
+        fire.canceled -= OnFireReleased;
+        fire.Disable();
+    }
+
+    void EnableBombAction()
+    {
+        bomb.performed += OnBombPressed;
+        bomb.Enable();
+    }
+
+    void DisableBombAction()
+    {
+        bomb.performed -= OnBombPressed;
+        bomb.Disable();
+    }
+
+    void OnFirePressed(InputAction.CallbackContext callbackContext)
+    {
+        EnableEmitters();
+    }
+
+    void OnFireReleased(InputAction.CallbackContext callbackContext) {
+        DisableEmitters();
+    }
+
+    void OnBombPressed(InputAction.CallbackContext callbackContext)
+    {
+        //
+        //if(!spellCooldown && Parameters.singleton.bombs >= 0)
+        if(Parameters.singleton.bombs >= 0)
         {
             Instantiate(spell, transform);
             Parameters.singleton.bombs--;
@@ -46,89 +166,57 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    void StartFire()
+    void OnFocusPressed(InputAction.CallbackContext callbackContext)
     {
-        emitter.SetActive(true);
-        emitter2.SetActive(true);
-        emitter3.SetActive(true);
+        moveSpeed = moveSpeedFocused;
     }
 
-    void StopFire()
+    void OnFocusReleased(InputAction.CallbackContext callbackContext)
     {
-        emitter.SetActive(false);
-        emitter2.SetActive(false);
-        emitter3.SetActive(false);
+        moveSpeed = moveSpeedNormal;
     }
 
-    // Update is called once per frame
-    void Update() //input reading
+    void Update() 
     {
-        if (!firingDisabled && Time.timeScale == 1 && GameObject.FindGameObjectsWithTag("Dialogue").Length < 1)
-        {
-            if (Input.GetKey(KeyCode.Z))
-            {
-                StartFire();
-            }
-            else
-            {
-                StopFire();
-            }
+        //read the value from the movement input action
+        movementVector = movementInput.ReadValue<Vector2>();
 
-            if (Input.GetKeyDown(KeyCode.X))
-            {
-                UseBomb();
-            }
-        }
-        else
+        //constrain player position to the visible play area
+        if ((transform.position.x <= -11.5f && movementVector.x < 0) || (transform.position.x > 11.5f && movementVector.x > 0))
         {
-            emitter.SetActive(false);
-            emitter2.SetActive(false);
-            emitter3.SetActive(false);
+            movementVector.x = 0;
+        }
+        if ((transform.position.y <= -9.05f && movementVector.y < 0) || (transform.position.y > 9.05f && movementVector.y > 0))
+        {
+            movementVector.y = 0;
         }
 
-        movement.x = Input.GetAxisRaw("Horizontal");
-        movement.y = Input.GetAxisRaw("Vertical");
-
-
-        if ((transform.position.x <= -11.5f && movement.x < 0) || (transform.position.x > 11.5f && movement.x > 0))
-        {
-            movement.x = 0;
-        }
-        if ((transform.position.y <= -9.05f && movement.y < 0) || (transform.position.y > 9.05f && movement.y > 0))
-        {
-            movement.y = 0;
-        }
+        movementVector.Normalize();
         
     }
 
     void FixedUpdate() //movement
     {
-        if (Input.GetKey(KeyCode.LeftShift))
-        {
-            transform.position += movement * moveSpeed/2 * Time.fixedDeltaTime;
-        } 
-        else
-        {
-            transform.position += movement * moveSpeed * Time.fixedDeltaTime;
-        }
+        transform.position += movementVector * moveSpeed * Time.fixedDeltaTime;
 
-        if (firingDisabled && !isPostBoss)
+        /*if (!fire.enabled && !isPostBoss)
         {
             if(framesSinceEnemyCardStart >= 100)
             {
-                firingDisabled = false;
+                EnableDestructiveInputActions();
                 framesSinceEnemyCardStart = 0;
             }
             framesSinceEnemyCardStart++;
-        }
+        }*/
     }
+    //Input action handling END----------------------------------
 
     IEnumerator BombInvulnerability()
     {
         GetComponent<PlayerCollision>().isColliding = true;
-        spellCooldown = true;
+        DisableBombAction();
         yield return new WaitForSeconds(2f);
         GetComponent<PlayerCollision>().isColliding = false;
-        spellCooldown = false;
+        EnableBombAction();
     }
 }

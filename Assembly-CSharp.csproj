@@ -93,7 +93,7 @@
     <Compile Include="Assets\Scripts\Enemy Controllers\BossSpawn.cs" />
     <Compile Include="Assets\Scripts\Bullet Controllers\DisableSelf.cs" />
     <Compile Include="Assets\Scripts\Parameters\SendGameOverMenu.cs" />
-    <Compile Include="Assets\Scripts\Parameters\WaitForZPress.cs" />
+    <Compile Include="Assets\Scripts\UserInput\AdvanceStageOnSelect.cs" />
     <Compile Include="Assets\Scripts\Parameters\SendGraphicReferencesToParam.cs" />
     <Compile Include="Assets\Scripts\Bullet Controllers\DisableSpawnerAfterTime.cs" />
     <Compile Include="Assets\Scripts\Enemy Controllers\MoveOnSpawnAndStop.cs" />
@@ -113,6 +113,8 @@
     <Compile Include="Assets\Scripts\Bullet Controllers\Rotate.cs" />
     <Compile Include="Assets\Scripts\Audio\FadeStageBGM.cs" />
     <Compile Include="Assets\Scripts\Audio\StageBGM.cs" />
+    <Compile Include="Assets\Scripts\UserInput\InputManager.cs" />
+    <Compile Include="Assets\Scripts\UserInput\InputActions.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

@@ -794,6 +794,7 @@ GameObject:
   m_Component:
   - component: {fileID: 357606063}
   - component: {fileID: 357606062}
+  - component: {fileID: 357606064}
   m_Layer: 0
   m_Name: gameParameters
   m_TagString: gameParams
@@ -822,13 +823,12 @@ MonoBehaviour:
   sceneName: 
   score: 0
   isBoss: 0
-  isBossDead: 0
+  stageSwitchInitiated: 0
   fadeTransition: {fileID: 562947612}
   continueScreen: {fileID: 0}
   continueFirstButton: {fileID: 0}
   gameOverScreen: {fileID: 0}
   gameOverFirstButton: {fileID: 0}
-  playerCont: {fileID: 0}
   bossDialoguePre: {fileID: 0}
   canvas: {fileID: 0}
 --- !u!4 &357606063
@@ -845,6 +845,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &357606064
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 357606061}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4aaae58c08e44eb4893b12a20a9764c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &412784874
 GameObject:
   m_ObjectHideFlags: 0

@@ -474,7 +474,7 @@ GameObject:
   - component: {fileID: 699100132}
   - component: {fileID: 699100131}
   m_Layer: 0
-  m_Name: Z Keypress Checker
+  m_Name: Wait For Select Press
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -609,6 +609,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1471790467}
   - component: {fileID: 1471790466}
+  - component: {fileID: 1471790468}
   m_Layer: 0
   m_Name: gameParameters
   m_TagString: gameParams
@@ -638,6 +639,7 @@ MonoBehaviour:
   score: 0
   isBoss: 0
   isBossDead: 0
+  stageSwitchInitiated: 0
   fadeTransition: {fileID: 0}
   continueScreen: {fileID: 0}
   continueFirstButton: {fileID: 0}
@@ -659,6 +661,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1471790468
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1471790465}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4aaae58c08e44eb4893b12a20a9764c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1522671415
 GameObject:
   m_ObjectHideFlags: 0

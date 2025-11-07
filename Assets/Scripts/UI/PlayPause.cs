@@ -1,8 +1,10 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.InputSystem;
 
 public class PlayPause : MonoBehaviour
 {
+    InputAction menu;
 
     public GameObject pauseMenu;
     public GameObject continueMenu;
@@ -19,19 +21,28 @@ public class PlayPause : MonoBehaviour
         Parameters.singleton.canvas = gameObject;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnEnable()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        menu = InputManager.inputActions.Default.Menu;
+        menu.performed += OnMenuPressed;
+        menu.Enable();
+    }
+
+    private void OnDisable()
+    {
+        menu.performed -= OnMenuPressed;
+        menu.Disable();
+    }
+
+    void OnMenuPressed(InputAction.CallbackContext callbackContext)
+    {
+        if (pauseMenu.activeSelf)
         {
-            if (pauseMenu.activeSelf)
-            {
-                Resume();
-            }
-            else if(!continueMenu.activeSelf && !gameOverMenu.activeSelf)
-            {
-                Pause(firstSelected);
-            }
+            Resume();
+        }
+        else if (!continueMenu.activeSelf && !gameOverMenu.activeSelf)
+        {
+            Pause(firstSelected);
         }
     }
 
@@ -39,12 +50,15 @@ public class PlayPause : MonoBehaviour
     {
         Debug.Log("Resuming game.");
         Time.timeScale = 1;
+        EventSystem.current.SetSelectedGameObject(null);
+        PlayerController.singleton.EnableAllInputActions();
         pauseMenu.SetActive(false);
     }
 
     void Pause(GameObject selected)
     {
         Debug.Log("Pausing Game.");
+        PlayerController.singleton.DisableAllInputActions();
         Time.timeScale = 0;
         EventSystem.current.SetSelectedGameObject(null);
         pauseMenu.SetActive(true);
@@ -59,6 +73,8 @@ public class PlayPause : MonoBehaviour
         Parameters.singleton.setLives();
         continueMenu.SetActive(false); 
         Time.timeScale = 1;
+        EventSystem.current.SetSelectedGameObject(null);
+        PlayerController.singleton.EnableAllInputActions();
     }
 
     public void Retry()

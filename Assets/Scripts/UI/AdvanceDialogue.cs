@@ -1,9 +1,12 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 public class AdvanceDialogue : MonoBehaviour
 {
     AdvanceDialogue singleton;
+
+    InputAction select;
 
     public Text currentDialogue;
     public GameObject emitter0;
@@ -28,6 +31,8 @@ public class AdvanceDialogue : MonoBehaviour
         {
             singleton = this;
         }
+
+        PlayerController.singleton.DisableDestructiveInputActions();
     }
 
     void Start()
@@ -57,12 +62,51 @@ public class AdvanceDialogue : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
+    private void OnEnable()
+    {
+        select = InputManager.inputActions.UI.Select;
+        select.performed += OnSelectPressed;
+        select.Enable();
+    }
+
+    private void OnDisable()
+    {
+        select.performed -= OnSelectPressed;
+        select.Disable();
+    }
+
+    void OnSelectPressed(InputAction.CallbackContext callbackContext)
+    {
+        if (isDialogueEnded)
+        {
+            return;
+        }
+
+        lineNumber++;
+        if (lineNumber < dialogueList.Length)
+        {
+            currentDialogue.text = dialogueList[lineNumber];
+        }
+        else
+        {
+            isDialogueEnded = true;
+            if (isPostBattle)
+            {
+                Parameters.singleton.NextStage();
+            }
+            else
+            {
+                StartBossFight();
+            }
+            Destroy(transform.parent.gameObject);
+        }
+    }
+
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Z) && !isDialogueEnded)
+        DestroyDuplicateDialoguesIfPresent();
+        /*if (Input.GetKeyDown(KeyCode.Z) && !isDialogueEnded)
         {
-            DestroyDuplicateDialoguesIfPresent();
 
             lineNumber++;
             if (lineNumber < dialogueList.Length)
@@ -72,7 +116,6 @@ public class AdvanceDialogue : MonoBehaviour
             else
             {
                 isDialogueEnded = true;
-                Debug.Log("firing is disabled: " + PlayerController.singleton.firingDisabled);
                 if (isPostBattle)
                 {
                     Parameters.singleton.NextStage();
@@ -83,12 +126,12 @@ public class AdvanceDialogue : MonoBehaviour
                 }
                 Destroy(transform.parent.gameObject);
             }
-        }
+        }*/
     }
 
     void StartBossFight()
     {
-        PlayerController.singleton.firingDisabled = false;
+        PlayerController.singleton.EnableDestructiveInputActions();
         (healthbar = Instantiate(healthbar, GameObject.Find("Canvas").transform)).GetComponent<GetBossHealth>().boss = boss;
         //boss.GetComponent<BossCollision>().phase = 1;
         boss.GetComponent<BossCollision>().healthbar = healthbar.GetComponent<Slider>();
@@ -100,6 +143,5 @@ public class AdvanceDialogue : MonoBehaviour
         timer.GetComponent<Text>().text = firstTimeLimit.ToString();
         boss.GetComponent<BossCollision>().dialogueOver = true;
         Instantiate(bossBGM);
-        Debug.Log("firing is disabled: " + PlayerController.singleton.firingDisabled);
     }
 }
