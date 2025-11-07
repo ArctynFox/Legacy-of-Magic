@@ -32,11 +32,21 @@ public class AdvanceDialogue : MonoBehaviour
 
     void Start()
     {
-        if(GameObject.FindGameObjectsWithTag("Dialogue").Length > 1)
-        {
-            Destroy(GameObject.FindGameObjectsWithTag("Dialogue")[1]);
-        }
+        DestroyDuplicateDialoguesIfPresent();
         currentDialogue.text = dialogueList[lineNumber];
+    }
+
+    void DestroyDuplicateDialoguesIfPresent()
+    {
+        GameObject[] dialogueObjects = GameObject.FindGameObjectsWithTag("Dialogue");
+        if(dialogueObjects.Length > 1)
+        {
+            Debug.Log("Duplicate dialogues exist. Destroying extras.");
+            for(int i = 1; i < dialogueObjects.Length; i++)
+            {
+                Destroy(dialogueObjects[i]);
+            }
+        }
     }
 
     private void OnDestroy()
@@ -52,6 +62,8 @@ public class AdvanceDialogue : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Z) && !isDialogueEnded)
         {
+            DestroyDuplicateDialoguesIfPresent();
+
             lineNumber++;
             if (lineNumber < dialogueList.Length)
             {

@@ -58,7 +58,7 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\UI\TitleScreen.cs" />
     <Compile Include="Assets\Scripts\Bullet Controllers\RandomBulletAngle.cs" />
-    <Compile Include="Assets\Scripts\Parameters\AdvanceDialogue.cs" />
+    <Compile Include="Assets\Scripts\UI\AdvanceDialogue.cs" />
     <Compile Include="Assets\Scripts\Bullet Controllers\RandomXPos.cs" />
     <Compile Include="Assets\Scripts\Parameters\SendContButton.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerCollision.cs" />
@@ -85,7 +85,7 @@
     <Compile Include="Assets\Scripts\Parameters\SendGameOverButton.cs" />
     <Compile Include="Assets\Scripts\Stages\Spawner Scripts\Stage3Script.cs" />
     <Compile Include="Assets\Scripts\Bullet Controllers\BulletLineRotationRange.cs" />
-    <Compile Include="Assets\Scripts\Parameters\SendFadeTransitionImageToParams.cs" />
+    <Compile Include="Assets\Scripts\Parameters\SendFadeTransitionImageToParam.cs" />
     <Compile Include="Assets\Scripts\Enemy Controllers\BossCollision.cs" />
     <Compile Include="Assets\Scripts\Enemy Controllers\OnCollisionWithBullets.cs" />
     <Compile Include="Assets\Scripts\Parameters\LifeSettingToParams.cs" />
@@ -94,7 +94,7 @@
     <Compile Include="Assets\Scripts\Bullet Controllers\DisableSelf.cs" />
     <Compile Include="Assets\Scripts\Parameters\SendGameOverMenu.cs" />
     <Compile Include="Assets\Scripts\Parameters\WaitForZPress.cs" />
-    <Compile Include="Assets\Scripts\Parameters\PassGraphicReferencesToParam.cs" />
+    <Compile Include="Assets\Scripts\Parameters\SendGraphicReferencesToParam.cs" />
     <Compile Include="Assets\Scripts\Bullet Controllers\DisableSpawnerAfterTime.cs" />
     <Compile Include="Assets\Scripts\Enemy Controllers\MoveOnSpawnAndStop.cs" />
     <Compile Include="Assets\Scripts\Parameters\SendContMenu.cs" />

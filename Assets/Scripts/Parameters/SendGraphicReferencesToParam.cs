@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class PassGraphicReferencesToParam : MonoBehaviour
+public class SendGraphicReferencesToParam : MonoBehaviour
 {
     [SerializeField]
     GameObject[] hearts = new GameObject[5];
