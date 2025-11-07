@@ -111,6 +111,8 @@
     <Compile Include="Assets\Scripts\Stages\Spawner Scripts\Stage5Script.cs" />
     <Compile Include="Assets\Scripts\UI\PlayPause.cs" />
     <Compile Include="Assets\Scripts\Bullet Controllers\Rotate.cs" />
+    <Compile Include="Assets\Scripts\Audio\FadeStageBGM.cs" />
+    <Compile Include="Assets\Scripts\Audio\StageBGM.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

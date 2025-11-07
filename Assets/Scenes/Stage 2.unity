@@ -1434,7 +1434,8 @@ MonoBehaviour:
   emitter2: {fileID: 138877597}
   emitter3: {fileID: 1912121827}
   spell: {fileID: 6873944969241288913, guid: e21a66c6ec711824f8a8d160f2233322, type: 3}
-  enemyCardActive: 0
+  firingDisabled: 0
+  isPostBoss: 0
 --- !u!4 &363382576
 Transform:
   m_ObjectHideFlags: 0
@@ -5917,6 +5918,7 @@ MonoBehaviour:
   score: 0
   isBoss: 0
   isBossDead: 0
+  stageSwitchInitiated: 0
   fadeTransition: {fileID: 1260945019}
   continueScreen: {fileID: 1628580041}
   continueFirstButton: {fileID: 1312515646}
@@ -6535,6 +6537,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1352817894}
   - component: {fileID: 1352817893}
+  - component: {fileID: 1352817895}
   m_Layer: 0
   m_Name: Over the Lake of Spirits
   m_TagString: Untagged
@@ -6556,7 +6559,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 0.7
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -6652,6 +6655,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1352817895
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1352817892}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32287ca9bbeca4b418ac7c2aed6c9253, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioSource: {fileID: 1352817893}
 --- !u!1001 &1357630955
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7993,16 +8009,26 @@ MonoBehaviour:
   m_GameObject: {fileID: 1779283335}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
+  m_Script: {fileID: 11500000, guid: 01614664b831546d2ae94a42149d80ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HorizontalAxis: Horizontal
-  m_VerticalAxis: Vertical
-  m_SubmitButton: Submit
-  m_CancelButton: Cancel
-  m_InputActionsPerSecond: 10
-  m_RepeatDelay: 0.5
-  m_ForceModuleActive: 0
+  m_MoveRepeatDelay: 0.5
+  m_MoveRepeatRate: 0.1
+  m_XRTrackingOrigin: {fileID: 0}
+  m_ActionsAsset: {fileID: -944628639613478452, guid: 62adaca005a0e93489ce06ad7a96a7dc, type: 3}
+  m_PointAction: {fileID: 0}
+  m_MoveAction: {fileID: -5164451127659368751, guid: 62adaca005a0e93489ce06ad7a96a7dc, type: 3}
+  m_SubmitAction: {fileID: -6064871977694500736, guid: 62adaca005a0e93489ce06ad7a96a7dc, type: 3}
+  m_CancelAction: {fileID: -1458160489755052434, guid: 62adaca005a0e93489ce06ad7a96a7dc, type: 3}
+  m_LeftClickAction: {fileID: 0}
+  m_MiddleClickAction: {fileID: 0}
+  m_RightClickAction: {fileID: 0}
+  m_ScrollWheelAction: {fileID: 0}
+  m_TrackedDevicePositionAction: {fileID: 0}
+  m_TrackedDeviceOrientationAction: {fileID: 0}
+  m_DeselectOnBackgroundClick: 1
+  m_PointerBehavior: 0
+  m_CursorLockBehavior: 0
 --- !u!114 &1779283337
 MonoBehaviour:
   m_ObjectHideFlags: 0

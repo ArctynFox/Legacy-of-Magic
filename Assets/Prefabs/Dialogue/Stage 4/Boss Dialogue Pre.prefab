@@ -115,6 +115,7 @@ MonoBehaviour:
   - 'Arceus: "This isn''t the first time this happened... Well, it''s only going
     to get harder from here so we might as well get it over with."'
   isPostBattle: 0
+  isDialogueEnded: 0
 --- !u!114 &2468174437862927596
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -138,6 +139,7 @@ GameObject:
   - component: {fileID: 2468174439138653130}
   - component: {fileID: 2468174439138653140}
   - component: {fileID: 2468174439138653131}
+  - component: {fileID: 8650017342842789395}
   m_Layer: 5
   m_Name: Boss Dialogue Pre
   m_TagString: Dialogue
@@ -203,3 +205,16 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &8650017342842789395
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2468174439138653129}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3520e1057e93c0d488f06dae0763648d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fadeTime: 2

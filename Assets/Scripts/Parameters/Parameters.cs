@@ -41,6 +41,11 @@ public class Parameters : MonoBehaviour
             singleton = this;
         }
 
+        Cursor.visible = false;
+#if UNITY_EDITOR
+        Cursor.visible = true;
+#endif
+
         //DEBUG: this only does anything if starting the game from a scene other than the title screen
         //get references to the bomb and heart graphics and updates their display based on the current life and bomb count
         for (int i = 0; i < hearts.Length; i++)
@@ -218,7 +223,7 @@ public class Parameters : MonoBehaviour
             default:
                 sceneName = "Title Screen";
                 stageName = "Title Screen";
-                stage = 0;
+                stage = -1;
                 break;
         }
         StartCoroutine(StageSwitch());

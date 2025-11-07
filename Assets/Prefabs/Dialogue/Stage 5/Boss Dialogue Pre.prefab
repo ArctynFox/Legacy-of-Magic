@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7757267657650809361}
   - component: {fileID: 7757267657650809359}
   - component: {fileID: 7757267657650809360}
+  - component: {fileID: 7988056317487896302}
   m_Layer: 5
   m_Name: Boss Dialogue Pre
   m_TagString: Dialogue
@@ -76,6 +77,19 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &7988056317487896302
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7757267657650809362}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3520e1057e93c0d488f06dae0763648d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fadeTime: 2
 --- !u!1 &7757267658523620668
 GameObject:
   m_ObjectHideFlags: 0
@@ -193,6 +207,7 @@ MonoBehaviour:
   - 'Arceus: "What are you trying to revive, anyway?"'
   - 'Filiansia: "Why would I tell you anything?"'
   isPostBattle: 0
+  isDialogueEnded: 0
 --- !u!114 &7757267658523620663
 MonoBehaviour:
   m_ObjectHideFlags: 0

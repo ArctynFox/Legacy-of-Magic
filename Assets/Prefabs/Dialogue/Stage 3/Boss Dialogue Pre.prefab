@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4452589973798766529}
   - component: {fileID: 4452589973798766559}
   - component: {fileID: 4452589973798766528}
+  - component: {fileID: 4854052908753572659}
   m_Layer: 5
   m_Name: Boss Dialogue Pre
   m_TagString: Dialogue
@@ -76,6 +77,19 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &4854052908753572659
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4452589973798766530}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3520e1057e93c0d488f06dae0763648d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fadeTime: 2
 --- !u!1 &4452589975073446124
 GameObject:
   m_ObjectHideFlags: 0
@@ -192,6 +206,7 @@ MonoBehaviour:
     guess I''ll have to take this one out quickly to get back to my research!"'
   - 'Arceus: "Wait, wh-"'
   isPostBattle: 0
+  isDialogueEnded: 0
 --- !u!114 &4452589975073446119
 MonoBehaviour:
   m_ObjectHideFlags: 0

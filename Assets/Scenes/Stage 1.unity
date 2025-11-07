@@ -1721,7 +1721,8 @@ MonoBehaviour:
   emitter2: {fileID: 138877597}
   emitter3: {fileID: 1912121827}
   spell: {fileID: 6873944969241288913, guid: e21a66c6ec711824f8a8d160f2233322, type: 3}
-  enemyCardActive: 0
+  firingDisabled: 0
+  isPostBoss: 0
 --- !u!4 &363382576
 Transform:
   m_ObjectHideFlags: 0
@@ -4798,12 +4799,12 @@ MonoBehaviour:
   score: 0
   isBoss: 0
   isBossDead: 0
+  stageSwitchInitiated: 0
   fadeTransition: {fileID: 1260945019}
   continueScreen: {fileID: 0}
   continueFirstButton: {fileID: 0}
   gameOverScreen: {fileID: 0}
   gameOverFirstButton: {fileID: 0}
-  playerCont: {fileID: 0}
   bossDialoguePre: {fileID: 0}
   canvas: {fileID: 0}
 --- !u!4 &1273489394
@@ -5500,6 +5501,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1377015931}
   - component: {fileID: 1377015930}
+  - component: {fileID: 1377015932}
   m_Layer: 0
   m_Name: The Forest of Fairies
   m_TagString: Untagged
@@ -5521,7 +5523,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -5617,6 +5619,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1377015932
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1377015929}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32287ca9bbeca4b418ac7c2aed6c9253, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioSource: {fileID: 1377015930}
 --- !u!1 &1394082942
 GameObject:
   m_ObjectHideFlags: 0
