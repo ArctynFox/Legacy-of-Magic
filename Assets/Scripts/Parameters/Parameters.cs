@@ -14,7 +14,7 @@ public class Parameters : MonoBehaviour
     public int bombs = 3;
     GameObject[] spells = new GameObject[5];
     public int continues = 5;
-    public int stage = 0;
+    public int stage = -1;
     string stageName = "Title Screen";
     public string sceneName = "Title Screen";
     public int score = 0;
@@ -248,6 +248,7 @@ public class Parameters : MonoBehaviour
         //load the scene and increment the stage counter
         SceneManager.LoadScene(sceneName);
         stage++;
+        stageSwitchInitiated = false;
 
         //post-scene change setup-----------------------------
         yield return new WaitForSeconds(.25f);
@@ -271,7 +272,6 @@ public class Parameters : MonoBehaviour
             yield return null;
         }
 
-        stageSwitchInitiated = false;
         //post-scene change setup END------------------------
     }
 }

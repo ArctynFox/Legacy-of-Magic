@@ -61,6 +61,7 @@
     <Compile Include="Assets\Scripts\UI\AdvanceDialogue.cs" />
     <Compile Include="Assets\Scripts\Bullet Controllers\RandomXPos.cs" />
     <Compile Include="Assets\Scripts\Parameters\SendContButton.cs" />
+    <Compile Include="Assets\Scripts\UserInput\InputManager.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerCollision.cs" />
     <Compile Include="Assets\Scripts\Bullet Controllers\DestroyAfterTime.cs" />
     <Compile Include="Assets\Scripts\Parameters\BombSettingToParams.cs" />
@@ -87,12 +88,15 @@
     <Compile Include="Assets\Scripts\Bullet Controllers\BulletLineRotationRange.cs" />
     <Compile Include="Assets\Scripts\Parameters\SendFadeTransitionImageToParam.cs" />
     <Compile Include="Assets\Scripts\Enemy Controllers\BossCollision.cs" />
+    <Compile Include="Assets\Scripts\Audio\StageBGM.cs" />
+    <Compile Include="Assets\Scripts\Audio\FadeStageBGM.cs" />
     <Compile Include="Assets\Scripts\Enemy Controllers\OnCollisionWithBullets.cs" />
     <Compile Include="Assets\Scripts\Parameters\LifeSettingToParams.cs" />
     <Compile Include="Assets\Scripts\Bullet Controllers\BaseRotationOnOtherSpawner.cs" />
     <Compile Include="Assets\Scripts\Enemy Controllers\BossSpawn.cs" />
     <Compile Include="Assets\Scripts\Bullet Controllers\DisableSelf.cs" />
     <Compile Include="Assets\Scripts\Parameters\SendGameOverMenu.cs" />
+    <Compile Include="Assets\Scripts\UserInput\InputActions.cs" />
     <Compile Include="Assets\Scripts\UserInput\AdvanceStageOnSelect.cs" />
     <Compile Include="Assets\Scripts\Parameters\SendGraphicReferencesToParam.cs" />
     <Compile Include="Assets\Scripts\Bullet Controllers\DisableSpawnerAfterTime.cs" />
@@ -111,10 +115,6 @@
     <Compile Include="Assets\Scripts\Stages\Spawner Scripts\Stage5Script.cs" />
     <Compile Include="Assets\Scripts\UI\PlayPause.cs" />
     <Compile Include="Assets\Scripts\Bullet Controllers\Rotate.cs" />
-    <Compile Include="Assets\Scripts\Audio\FadeStageBGM.cs" />
-    <Compile Include="Assets\Scripts\Audio\StageBGM.cs" />
-    <Compile Include="Assets\Scripts\UserInput\InputManager.cs" />
-    <Compile Include="Assets\Scripts\UserInput\InputActions.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

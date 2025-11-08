@@ -97,35 +97,33 @@ public class BossCollision : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (invulnerable)//anther measure in place to make sure the boss doesn't break - this probably does the exact same as the previous if-statement but inverted
+        if (!invulnerable)
         {
-            return;
-        }
-
-        invulnerable = true;
-        if (other.gameObject.tag == "PlayerBullet")//only takes damage/changes phase if hit by the player's bullets
-        {
-            health--;//decreases health by 1 per hit
-            if (health < 1)
+            //invulnerable = true;
+            if (other.gameObject.tag == "PlayerBullet")//only takes damage/changes phase if hit by the player's bullets
             {
-                phase++;//goes to next phase if health reaches 0
-                if (phase < healthBars)
+                health--;//decreases health by 1 per hit
+                if (health < 1)
                 {
-                    Parameters.singleton.score += 10000;//adds to score if phase change was initiated by one of the player's bullets
-                    NextPhase();
-                }
-                else
-                {
-                    if (!isAlreadyDead)//another measure to make sure the boss doesn't get bugged
+                    phase++;//goes to next phase if health reaches 0
+                    if (phase < healthBars)
                     {
-                        Parameters.singleton.score += 50000;//adds to score if boss was beaten by player
-                        OnBossDeath();
+                        Parameters.singleton.score += 10000;//adds to score if phase change was initiated by one of the player's bullets
+                        NextPhase();
+                    }
+                    else
+                    {
+                        if (!isAlreadyDead)//another measure to make sure the boss doesn't get bugged
+                        {
+                            Parameters.singleton.score += 50000;//adds to score if boss was beaten by player
+                            OnBossDeath();
+                        }
                     }
                 }
+                Destroy(other.gameObject);//destroys the bullet that hit the boss
             }
-            Destroy(other.gameObject);//destroys the bullet that hit the boss
+            //invulnerable = false;
         }
-        invulnerable = false;
     }
 
     void OnBossDeath()

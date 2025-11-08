@@ -1,27 +1,14 @@
 using UnityEngine;
-using UnityEngine.InputSystem;
+using UnityEngine.EventSystems;
 
 public class AdvanceStageOnSelect : MonoBehaviour
 {
-    InputAction select;
-
-    void OnEnable()
+    private void OnEnable()
     {
-        select = InputManager.inputActions.UI.Select;
-        select.Enable();
-        select.performed += OnSelect;
+        EventSystem.current.SetSelectedGameObject(gameObject);
     }
 
-    void OnDisable()
-    {
-        if (select != null)
-        {
-            select.Disable();
-            select.performed -= OnSelect;
-        }
-    }
-
-    void OnSelect(InputAction.CallbackContext callbackContext)
+    public void OnSelect()
     {
         Parameters.singleton.NextStage();
     }

@@ -39,6 +39,9 @@ public class AdvanceDialogue : MonoBehaviour
     {
         DestroyDuplicateDialoguesIfPresent();
         currentDialogue.text = dialogueList[lineNumber];
+        select = InputManager.inputActions.UI.Select;
+        select.performed += OnSelectPressed;
+        select.Enable();
     }
 
     void DestroyDuplicateDialoguesIfPresent()
@@ -62,12 +65,12 @@ public class AdvanceDialogue : MonoBehaviour
         }
     }
 
-    private void OnEnable()
+    /*private void OnEnable()
     {
         select = InputManager.inputActions.UI.Select;
         select.performed += OnSelectPressed;
         select.Enable();
-    }
+    }*/
 
     private void OnDisable()
     {
