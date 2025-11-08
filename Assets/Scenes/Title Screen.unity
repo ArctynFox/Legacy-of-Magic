@@ -576,12 +576,12 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1873852897}
-  m_Father: {fileID: 644828662}
-  m_RootOrder: 1
+  m_Father: {fileID: 2130182358}
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 642.58, y: -387.09998}
+  m_AnchoredPosition: {x: 323.00003, y: 0.000061035156}
   m_SizeDelta: {x: 546, y: 1028}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &192615684
@@ -794,6 +794,7 @@ GameObject:
   m_Component:
   - component: {fileID: 357606063}
   - component: {fileID: 357606062}
+  - component: {fileID: 357606064}
   m_Layer: 0
   m_Name: gameParameters
   m_TagString: gameParams
@@ -818,17 +819,16 @@ MonoBehaviour:
   bombSetting: 2
   bombs: 1
   continues: 5
-  stage: 0
+  stage: -1
   sceneName: 
   score: 0
   isBoss: 0
-  isBossDead: 0
+  stageSwitchInitiated: 0
   fadeTransition: {fileID: 562947612}
   continueScreen: {fileID: 0}
   continueFirstButton: {fileID: 0}
   gameOverScreen: {fileID: 0}
   gameOverFirstButton: {fileID: 0}
-  playerCont: {fileID: 0}
   bossDialoguePre: {fileID: 0}
   canvas: {fileID: 0}
 --- !u!4 &357606063
@@ -845,6 +845,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &357606064
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 357606061}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4aaae58c08e44eb4893b12a20a9764c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &412784874
 GameObject:
   m_ObjectHideFlags: 0
@@ -888,7 +900,7 @@ RectTransform:
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &412784876
 Animator:
-  serializedVersion: 3
+  serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -901,10 +913,12 @@ Animator:
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &412784877
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1027,7 +1041,8 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 855976414}
   m_Father: {fileID: 971785126}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1530,7 +1545,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: A timely disaster
+  m_Text: A Timely Disaster
 --- !u!222 &617743036
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1569,7 +1584,6 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 811616321}
-  - {fileID: 192615683}
   m_Father: {fileID: 2130182358}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1724,9 +1738,9 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 0.3773585, g: 0.3773585, b: 0.3773585, a: 0.65882355}
-    m_HighlightedColor: {r: 1, g: 0.41667736, b: 0, a: 0.78431374}
+    m_HighlightedColor: {r: 1, g: 1, b: 1, a: 0.78431374}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 1, g: 0.41568628, b: 0, a: 0.78431374}
+    m_SelectedColor: {r: 1, g: 1, b: 1, a: 0.78431374}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -1959,13 +1973,13 @@ RectTransform:
   - {fileID: 1799919985}
   - {fileID: 313279770}
   m_Father: {fileID: 971785126}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: -374}
   m_SizeDelta: {x: 329, y: 116}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_Pivot: {x: 0.575, y: 0.5}
 --- !u!1 &811616320
 GameObject:
   m_ObjectHideFlags: 0
@@ -2070,17 +2084,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 855976413}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 971785126}
-  m_RootOrder: 1
+  m_Father: {fileID: 495254567}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1200, y: 580.7623}
+  m_SizeDelta: {x: -40, y: -40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &855976415
 MonoBehaviour:
@@ -2095,7 +2109,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.83137256, g: 0, b: 0.21960784, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2115,15 +2129,15 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Game Cotntrols: \n\tArrow Keys - Move\n\tLeft Shift + Arrow Keys - Slow
-    Move\n\tZ - Attack/Select\n\tX - Greater Magic [Clears all enemy bullets]\n\tEsc
-    - Open the pause menu\n(Side note: The player's hitbox is shown as the orange
-    circle on the center of the sprite.)\n\nStory: In a fantastical world with many
-    types of mythical creature, you are the second liutenant of the twelfth company
-    of the Kingdom's Mage Corps. Your position isn't just for show, you are often
-    asked to perform investigations and subjugations when strange occurrences happen.
-    On a cool spring day, you are summoned by the first liutenant for \"training\".
-    You encounter some of the most boisterous creatures, fairies, on your journey..."
+  m_Text: "Game Cotntrols: \n\tArrow Keys - Move\n\tHold Left Shift - Slow Move\n\tZ
+    - Attack/Select\n\tX - Greater Magic [Clears all enemy bullets]\n\tEsc - Open
+    the pause menu\nNote: The player's hitbox is shown as the orange circle on the
+    center of the sprite.\n\nStory: In a fantastical world with many types of mythical
+    creatures, you are the second liutenant of the twelfth company of the Kingdom's
+    Mage Corps. Your position isn't just for show, as you are often asked to perform
+    investigations and subjugations when strange occurrences happen. On a cool spring
+    day, you are summoned by the first liutenant for \"training\". You encounter
+    some of the most boisterous creatures, fairies, on your journey..."
 --- !u!222 &855976416
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2210,7 +2224,6 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 495254567}
-  - {fileID: 855976414}
   - {fileID: 804064179}
   m_Father: {fileID: 2063301885}
   m_RootOrder: 4
@@ -3294,9 +3307,9 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 0.3773585, g: 0.3773585, b: 0.3773585, a: 0.65882355}
-    m_HighlightedColor: {r: 1, g: 0.41667736, b: 0, a: 0.78431374}
+    m_HighlightedColor: {r: 1, g: 1, b: 1, a: 0.78431374}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 1, g: 0.41568628, b: 0, a: 0.78431374}
+    m_SelectedColor: {r: 1, g: 1, b: 1, a: 0.78431374}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -4776,16 +4789,26 @@ MonoBehaviour:
   m_GameObject: {fileID: 2111145660}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
+  m_Script: {fileID: 11500000, guid: 01614664b831546d2ae94a42149d80ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HorizontalAxis: Horizontal
-  m_VerticalAxis: Vertical
-  m_SubmitButton: Submit
-  m_CancelButton: Cancel
-  m_InputActionsPerSecond: 10
-  m_RepeatDelay: 0.5
-  m_ForceModuleActive: 0
+  m_MoveRepeatDelay: 0.5
+  m_MoveRepeatRate: 0.1
+  m_XRTrackingOrigin: {fileID: 0}
+  m_ActionsAsset: {fileID: -944628639613478452, guid: 62adaca005a0e93489ce06ad7a96a7dc, type: 3}
+  m_PointAction: {fileID: 0}
+  m_MoveAction: {fileID: -5164451127659368751, guid: 62adaca005a0e93489ce06ad7a96a7dc, type: 3}
+  m_SubmitAction: {fileID: -6064871977694500736, guid: 62adaca005a0e93489ce06ad7a96a7dc, type: 3}
+  m_CancelAction: {fileID: -1458160489755052434, guid: 62adaca005a0e93489ce06ad7a96a7dc, type: 3}
+  m_LeftClickAction: {fileID: 0}
+  m_MiddleClickAction: {fileID: 0}
+  m_RightClickAction: {fileID: 0}
+  m_ScrollWheelAction: {fileID: 0}
+  m_TrackedDevicePositionAction: {fileID: 0}
+  m_TrackedDeviceOrientationAction: {fileID: 0}
+  m_DeselectOnBackgroundClick: 1
+  m_PointerBehavior: 0
+  m_CursorLockBehavior: 0
 --- !u!114 &2111145662
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4969,7 +4992,7 @@ GameObject:
   m_IsActive: 1
 --- !u!95 &2130182355
 Animator:
-  serializedVersion: 3
+  serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -4982,10 +5005,12 @@ Animator:
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!222 &2130182357
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5010,12 +5035,13 @@ RectTransform:
   - {fileID: 1821193154}
   - {fileID: 2127356267}
   - {fileID: 1184102575}
+  - {fileID: 192615683}
   m_Father: {fileID: 2063301885}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.000061035, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 1920, y: 1080}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &2139901303

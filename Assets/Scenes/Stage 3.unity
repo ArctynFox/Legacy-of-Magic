@@ -1520,6 +1520,7 @@ GameObject:
   - component: {fileID: 321106953}
   - component: {fileID: 321106952}
   - component: {fileID: 321106956}
+  - component: {fileID: 321106957}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -1633,9 +1634,34 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 885105676}
   continueMenu: {fileID: 1628580041}
+  gameOverMenu: {fileID: 1204003554}
   menuSceneName: Title Screen
   restartSceneName: Stage 1
   firstSelected: {fileID: 1327838169}
+--- !u!114 &321106957
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 321106951}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8d5c95138721774f884e6a14256114e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hearts:
+  - {fileID: 7926714}
+  - {fileID: 1755253098}
+  - {fileID: 279483302}
+  - {fileID: 5625553}
+  - {fileID: 966050486}
+  spells:
+  - {fileID: 1796908070}
+  - {fileID: 68540264}
+  - {fileID: 1000674568}
+  - {fileID: 1086200399}
+  - {fileID: 2127603001}
 --- !u!1 &363382573
 GameObject:
   m_ObjectHideFlags: 0
@@ -1672,7 +1698,8 @@ MonoBehaviour:
   emitter2: {fileID: 138877597}
   emitter3: {fileID: 1912121827}
   spell: {fileID: 6873944969241288913, guid: e21a66c6ec711824f8a8d160f2233322, type: 3}
-  enemyCardActive: 0
+  firingDisabled: 0
+  isPostBoss: 0
 --- !u!4 &363382576
 Transform:
   m_ObjectHideFlags: 0
@@ -4361,7 +4388,7 @@ CanvasRenderer:
   m_CullTransparentMesh: 1
 --- !u!95 &885105680
 Animator:
-  serializedVersion: 3
+  serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -4374,10 +4401,12 @@ Animator:
   m_UpdateMode: 2
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &897396180
 GameObject:
   m_ObjectHideFlags: 0
@@ -5646,7 +5675,7 @@ RectTransform:
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &1204003556
 Animator:
-  serializedVersion: 3
+  serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -5659,10 +5688,12 @@ Animator:
   m_UpdateMode: 2
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &1204003557
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5811,6 +5842,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1273489394}
   - component: {fileID: 1273489393}
+  - component: {fileID: 1273489395}
   m_Layer: 0
   m_Name: gameParameters
   m_TagString: gameParams
@@ -5840,12 +5872,12 @@ MonoBehaviour:
   score: 0
   isBoss: 0
   isBossDead: 0
+  stageSwitchInitiated: 0
   fadeTransition: {fileID: 1260945019}
   continueScreen: {fileID: 1628580041}
   continueFirstButton: {fileID: 1312515646}
   gameOverScreen: {fileID: 1204003554}
   gameOverFirstButton: {fileID: 610317917}
-  playerCont: {fileID: 0}
   bossDialoguePre: {fileID: 0}
   canvas: {fileID: 0}
 --- !u!4 &1273489394
@@ -5862,6 +5894,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1273489395
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1273489392}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4aaae58c08e44eb4893b12a20a9764c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1303980405
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5969,7 +6013,7 @@ RectTransform:
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &1312515648
 Animator:
-  serializedVersion: 3
+  serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -5982,10 +6026,12 @@ Animator:
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &1312515649
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6304,7 +6350,7 @@ CanvasRenderer:
   m_CullTransparentMesh: 1
 --- !u!95 &1327838174
 Animator:
-  serializedVersion: 3
+  serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -6317,10 +6363,12 @@ Animator:
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &1354918371
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6883,6 +6931,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1413295738}
   - component: {fileID: 1413295737}
+  - component: {fileID: 1413295739}
   m_Layer: 0
   m_Name: This is Getting Dangerous
   m_TagString: Untagged
@@ -6904,7 +6953,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 0.6
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -7000,6 +7049,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1413295739
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1413295736}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32287ca9bbeca4b418ac7c2aed6c9253, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioSource: {fileID: 1413295737}
 --- !u!1001 &1435375055
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7540,7 +7602,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &1522884715
 Animator:
-  serializedVersion: 3
+  serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -7553,10 +7615,12 @@ Animator:
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!212 &1522884716
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -7758,7 +7822,7 @@ GameObject:
   m_IsActive: 1
 --- !u!95 &1628580042
 Animator:
-  serializedVersion: 3
+  serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -7771,10 +7835,12 @@ Animator:
   m_UpdateMode: 2
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &1628580043
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8291,16 +8357,26 @@ MonoBehaviour:
   m_GameObject: {fileID: 1779283335}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
+  m_Script: {fileID: 11500000, guid: 01614664b831546d2ae94a42149d80ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HorizontalAxis: Horizontal
-  m_VerticalAxis: Vertical
-  m_SubmitButton: Submit
-  m_CancelButton: Cancel
-  m_InputActionsPerSecond: 10
-  m_RepeatDelay: 0.5
-  m_ForceModuleActive: 0
+  m_MoveRepeatDelay: 0.5
+  m_MoveRepeatRate: 0.1
+  m_XRTrackingOrigin: {fileID: 0}
+  m_ActionsAsset: {fileID: -944628639613478452, guid: 62adaca005a0e93489ce06ad7a96a7dc, type: 3}
+  m_PointAction: {fileID: 0}
+  m_MoveAction: {fileID: -5164451127659368751, guid: 62adaca005a0e93489ce06ad7a96a7dc, type: 3}
+  m_SubmitAction: {fileID: -6064871977694500736, guid: 62adaca005a0e93489ce06ad7a96a7dc, type: 3}
+  m_CancelAction: {fileID: -1458160489755052434, guid: 62adaca005a0e93489ce06ad7a96a7dc, type: 3}
+  m_LeftClickAction: {fileID: 0}
+  m_MiddleClickAction: {fileID: 0}
+  m_RightClickAction: {fileID: 0}
+  m_ScrollWheelAction: {fileID: 0}
+  m_TrackedDevicePositionAction: {fileID: 0}
+  m_TrackedDeviceOrientationAction: {fileID: 0}
+  m_DeselectOnBackgroundClick: 1
+  m_PointerBehavior: 0
+  m_CursorLockBehavior: 0
 --- !u!114 &1779283337
 MonoBehaviour:
   m_ObjectHideFlags: 0
