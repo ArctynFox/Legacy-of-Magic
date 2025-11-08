@@ -3,6 +3,12 @@ This game is a Touhou-inspired danmaku game using the same arcade-continue style
 
 This project was developed in 8 weeks by myself, the sole developer. Only the art and some of the music was also outsourced, while some I composed myself.
 
+# Download
+The game can be downloaded and played via the [latest release](https://github.com/ArctynFox/Legacy-of-Magic/releases/latest)
+
+# Build Instructions
+If you would like to build or edit the game for yourself, you can do so using Unity version 2020.3.49.f1.
+
 # Screenshots
 ![1](https://github.com/user-attachments/assets/2a126f0f-3620-4281-89ee-889ba719a08b)
 Each enemy type, which can be distinguished by their sprite, has a different attack pattern, and this pattern becomes more difficult each stage.
