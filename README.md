@@ -3,6 +3,8 @@ This game is a Touhou-inspired danmaku game using the same arcade-continue style
 
 This project was developed in 8 weeks by myself, the sole developer. Only the art and some of the music was also outsourced, while some I composed myself.
 
+[Demo video / プレイ動画](https://www.youtube.com/watch?v=mVkjVgXQ0Bs)
+
 # Download
 The game can be downloaded and played via the [latest release](https://github.com/ArctynFox/Legacy-of-Magic/releases/latest).
 
