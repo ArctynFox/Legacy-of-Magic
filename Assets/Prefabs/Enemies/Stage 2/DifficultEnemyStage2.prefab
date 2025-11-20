@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 3577753144677818735}
   - component: {fileID: 5013649262095804838}
   - component: {fileID: 6403450131615778644}
-  - component: {fileID: 4523628544605898639}
   - component: {fileID: 1991010704609815308}
   - component: {fileID: 2113527168723411748}
   - component: {fileID: 975210485299353081}
@@ -100,23 +99,8 @@ MonoBehaviour:
   firedFrom: {fileID: 0}
   offsetAngle: 75
   isOrbit: 0
-  angleZeroSpeed: 0.125
+  angleZeroFactor: 0.125
   stopTime: 1.5
---- !u!114 &4523628544605898639
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3577753144677818733}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 81983f4cf9e3c20409c3c6cf95f3b25d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveScript: {fileID: 5013649262095804838}
-  loopTime: 5
-  startTime: 4
 --- !u!114 &1991010704609815308
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -78,9 +78,8 @@
     <Compile Include="Assets\Scripts\UI\UpdateBGMTitle.cs" />
     <Compile Include="Assets\Scripts\Bullet Controllers\AngleOrbit.cs" />
     <Compile Include="Assets\Scripts\Stages\Spawner Scripts\Stage1Script.cs" />
-    <Compile Include="Assets\Scripts\Bullet Controllers\PlayerBulletMovement.cs" />
     <Compile Include="Assets\Scripts\Bullet Controllers\HomingBullet.cs" />
-    <Compile Include="Assets\Scripts\Bullet Controllers\BulletInstantiator.cs" />
+    <Compile Include="Assets\Scripts\Spawner\BulletInstantiator.cs" />
     <Compile Include="Assets\Scripts\Bullet Controllers\RandomOrbitAngle.cs" />
     <Compile Include="Assets\Scripts\Enemy Controllers\GetBossHealth.cs" />
     <Compile Include="Assets\Scripts\Parameters\SendGameOverButton.cs" />
@@ -92,7 +91,7 @@
     <Compile Include="Assets\Scripts\Audio\FadeStageBGM.cs" />
     <Compile Include="Assets\Scripts\Enemy Controllers\OnCollisionWithBullets.cs" />
     <Compile Include="Assets\Scripts\Parameters\LifeSettingToParams.cs" />
-    <Compile Include="Assets\Scripts\Bullet Controllers\BaseRotationOnOtherSpawner.cs" />
+    <Compile Include="Assets\Scripts\Spawner\BaseRotationOnOtherSpawner.cs" />
     <Compile Include="Assets\Scripts\Enemy Controllers\BossSpawn.cs" />
     <Compile Include="Assets\Scripts\Bullet Controllers\DisableSelf.cs" />
     <Compile Include="Assets\Scripts\Parameters\SendGameOverMenu.cs" />
@@ -105,7 +104,6 @@
     <Compile Include="Assets\Scripts\Stages\Spawner Scripts\Stage2Script.cs" />
     <Compile Include="Assets\Scripts\Bullet Controllers\DirectionRotator.cs" />
     <Compile Include="Assets\Scripts\Bullet Controllers\BulletGravity.cs" />
-    <Compile Include="Assets\Scripts\Bullet Controllers\BulletMovement.cs" />
     <Compile Include="Assets\Scripts\Enemy Controllers\LeaveAfterTime.cs" />
     <Compile Include="Assets\Scripts\Bullet Controllers\MoveDanmaku.cs" />
     <Compile Include="Assets\Scripts\UI\EndingText.cs" />

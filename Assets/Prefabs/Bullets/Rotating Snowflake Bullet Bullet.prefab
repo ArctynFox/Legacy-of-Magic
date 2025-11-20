@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 9138819920919207335}
   - component: {fileID: -7443381949491721703}
-  - component: {fileID: -1954123837206618728}
   - component: {fileID: 2867467241051081531}
   m_Layer: 0
   m_Name: Rotating Snowflake Bullet Bullet
@@ -48,23 +47,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 1
   direction: {x: 0, y: 0, z: 0}
---- !u!114 &-1954123837206618728
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9138819920919207334}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 92c2de7b55cba0941822648a6acaa566, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  firedFrom: {fileID: 0}
-  offsetAngle: 75
-  isOrbit: 0
-  angleZeroSpeed: 0.125
-  stopTime: 99
 --- !u!114 &2867467241051081531
 MonoBehaviour:
   m_ObjectHideFlags: 0
