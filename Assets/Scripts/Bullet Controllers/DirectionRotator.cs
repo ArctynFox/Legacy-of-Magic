@@ -4,13 +4,13 @@ using UnityEngine;
 
 //弾スポナー専用
 //デコレーターパターン
-[RequireComponent(typeof(BulletInstantiator))]
+[RequireComponent(typeof(BulletSpawner))]
 public class DirectionRotator : MonoBehaviour
 {
     //一秒あたりの角度差
     public float degreesPerSecond = 15f;
     //対象スポナー
-    public BulletInstantiator[] instantiators;
+    public BulletSpawner[] instantiators;
     //角度は時間が立つと変化するかどうか
     public bool angleIncreasing = false;
     //一秒ごとの角度変更
@@ -29,7 +29,7 @@ public class DirectionRotator : MonoBehaviour
         {
             degreesPerFrame += deltaAngle * Time.fixedDeltaTime;
         }
-        foreach(BulletInstantiator current in instantiators)
+        foreach(BulletSpawner current in instantiators)
         {
             //発射方向を開店
             current.arcCenter += degreesPerFrame;

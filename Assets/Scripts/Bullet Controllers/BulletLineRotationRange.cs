@@ -3,10 +3,10 @@ using UnityEngine;
 //弾スポナーに追加すると、発射方向を指定された最大角度で前後に回転させる
 
 //スポナー専用
-[RequireComponent(typeof(BulletInstantiator))]
+[RequireComponent(typeof(BulletSpawner))]
 public class BulletLineRotationRange : MonoBehaviour
 {
-    public BulletInstantiator spawnScript;
+    public BulletSpawner spawnScript;
     //最大角度
     public float maxAngle = 90;
     //回転方向を変更するタイミング

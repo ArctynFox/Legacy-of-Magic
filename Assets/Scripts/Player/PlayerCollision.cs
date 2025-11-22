@@ -35,7 +35,7 @@ public class PlayerCollision : MonoBehaviour
                     }
                     else if(other.gameObject.tag == "Boss")
                     {
-                        other.GetComponent<BossCollision>().health--;
+                        other.GetComponent<BossController>().health--;
                     }
                     Instantiate(deathExplosion, transform).transform.parent = null;
                     transform.position = resetPos;

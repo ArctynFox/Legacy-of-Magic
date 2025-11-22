@@ -3,11 +3,11 @@ using UnityEngine;
 //弾スポナーに追加すると、secondsBetweenAngleUpdateの指定秒数ごとにchildInstantiatorの発射角度をmasterInstantiatorのに設定
 
 //スポナー専用
-[RequireComponent(typeof(BulletInstantiator))]
+[RequireComponent(typeof(BulletSpawner))]
 public class BaseRotationOnOtherSpawner : MonoBehaviour
 {
-    public BulletInstantiator masterInstantiator;
-    public BulletInstantiator childInstantiator;
+    public BulletSpawner masterInstantiator;
+    public BulletSpawner childInstantiator;
     public float secondsBetweenAngleUpdate = 2f;
     //発射当たりのフレーム数
     int framesPerSpawn;

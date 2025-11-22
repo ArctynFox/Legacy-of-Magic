@@ -137,14 +137,14 @@ public class AdvanceDialogue : MonoBehaviour
         PlayerController.singleton.EnableDestructiveInputActions();
         (healthbar = Instantiate(healthbar, GameObject.Find("Canvas").transform)).GetComponent<GetBossHealth>().boss = boss;
         //boss.GetComponent<BossCollision>().phase = 1;
-        boss.GetComponent<BossCollision>().healthbar = healthbar.GetComponent<Slider>();
-        healthbar.GetComponent<Slider>().maxValue = boss.GetComponent<BossCollision>().phaseHealths[0];
-        boss.GetComponent<BossCollision>().emitters[0] = Instantiate(emitter0, boss.transform);
+        boss.GetComponent<BossController>().healthbar = healthbar.GetComponent<Slider>();
+        healthbar.GetComponent<Slider>().maxValue = boss.GetComponent<BossController>().phaseHealths[0];
+        boss.GetComponent<BossController>().emitters[0] = Instantiate(emitter0, boss.transform);
         timer = Instantiate(timer, GameObject.Find("Canvas").transform);
-        boss.GetComponent<BossCollision>().timer = timer;
-        boss.GetComponent<BossCollision>().timerText = timer.GetComponent<Text>();
+        boss.GetComponent<BossController>().timer = timer;
+        boss.GetComponent<BossController>().timerText = timer.GetComponent<Text>();
         timer.GetComponent<Text>().text = firstTimeLimit.ToString();
-        boss.GetComponent<BossCollision>().dialogueOver = true;
+        boss.GetComponent<BossController>().dialogueOver = true;
         Instantiate(bossBGM);
     }
 }

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BulletInstantiator : MonoBehaviour
+public class BulletSpawner : MonoBehaviour
 {
     public GameObject bulletType;//the type of bullet to be fired. will always be a prefab
 

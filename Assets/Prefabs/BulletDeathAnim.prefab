@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4550797879134722027}
   - component: {fileID: 5148953275268288132}
   m_Layer: 0
-  m_Name: bullet delete
+  m_Name: BulletDeathAnim
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

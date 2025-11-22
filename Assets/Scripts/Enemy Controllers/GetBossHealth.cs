@@ -7,13 +7,13 @@ public class GetBossHealth : MonoBehaviour
 {
 
     public GameObject boss;
-    BossCollision bossStats;
+    BossController bossStats;
     public Slider healthbar;
     // Start is called before the first frame update
     void Start()
     {
         //boss = GameObject.Find("Boss");
-        bossStats = boss.GetComponent<BossCollision>();
+        bossStats = boss.GetComponent<BossController>();
         healthbar.maxValue = bossStats.maxHealth;
     }
 
