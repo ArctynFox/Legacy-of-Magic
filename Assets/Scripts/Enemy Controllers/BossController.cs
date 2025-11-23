@@ -2,6 +2,8 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
+//ボスの形態やHPやダイアログや衝突などを整理するスクリプト
+
 public class BossController : MonoBehaviour
 {
     //形態制御

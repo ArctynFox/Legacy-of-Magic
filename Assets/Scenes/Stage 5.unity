@@ -6512,8 +6512,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e645dbfca2c573458dcddce69263617, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movement: {x: -0.5, y: 0, z: 0}
-  resetPosition: {x: -100, y: 0, z: 0}
+  movementSpeed: 0.5
+  bossAppearMovementMultiplier: 8
+  resetXDistance: -100
   resetLocationTrigger: -1
 --- !u!1 &1204003554
 GameObject:
@@ -8105,8 +8106,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e645dbfca2c573458dcddce69263617, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movement: {x: -0.5, y: 0, z: 0}
-  resetPosition: {x: -100, y: 0, z: 0}
+  movementSpeed: 0.5
+  bossAppearMovementMultiplier: 8
+  resetXDistance: -100
   resetLocationTrigger: 20
 --- !u!1 &1462807764
 GameObject:
@@ -8892,8 +8894,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e645dbfca2c573458dcddce69263617, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movement: {x: -0.5, y: 0, z: 0}
-  resetPosition: {x: -100, y: 0, z: 0}
+  movementSpeed: 0.5
+  bossAppearMovementMultiplier: 8
+  resetXDistance: -100
   resetLocationTrigger: 20
 --- !u!1001 &1591373556
 PrefabInstance:
@@ -9789,8 +9792,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e645dbfca2c573458dcddce69263617, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movement: {x: -0.5, y: 0, z: 0}
-  resetPosition: {x: -100, y: 0, z: 0}
+  movementSpeed: 0.5
+  bossAppearMovementMultiplier: 8
+  resetXDistance: -100
   resetLocationTrigger: 20
 --- !u!1 &1784641821
 GameObject:

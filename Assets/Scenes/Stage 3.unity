@@ -1694,12 +1694,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 7
+  moveSpeedNormal: 7
+  moveSpeedFocused: 3.5
   emitter: {fileID: 494768301}
   emitter2: {fileID: 138877597}
   emitter3: {fileID: 1912121827}
   spell: {fileID: 6873944969241288913, guid: e21a66c6ec711824f8a8d160f2233322, type: 3}
-  firingDisabled: 0
-  isPostBoss: 0
 --- !u!4 &363382576
 Transform:
   m_ObjectHideFlags: 0
@@ -5871,7 +5871,6 @@ MonoBehaviour:
   sceneName: 
   score: 0
   isBoss: 0
-  isBossDead: 0
   stageSwitchInitiated: 0
   fadeTransition: {fileID: 1260945019}
   continueScreen: {fileID: 1628580041}
@@ -6710,7 +6709,6 @@ MonoBehaviour:
   - {fileID: 127675359}
   - {fileID: 127675358}
   - {fileID: 127675357}
-  movement: {x: -1, y: 0, z: 0}
 --- !u!1001 &1375235236
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
@@ -52,7 +53,13 @@ public class AdvanceDialogue : MonoBehaviour
             Debug.Log("Duplicate dialogues exist. Destroying extras.");
             for(int i = 1; i < dialogueObjects.Length; i++)
             {
-                Destroy(dialogueObjects[i]);
+                try
+                {
+                    Destroy(dialogueObjects[i]);
+                } catch(NullReferenceException e)
+                {
+                    Debug.LogWarning(e.Message);
+                }
             }
         }
     }
@@ -64,13 +71,6 @@ public class AdvanceDialogue : MonoBehaviour
             singleton = null;
         }
     }
-
-    /*private void OnEnable()
-    {
-        select = InputManager.inputActions.UI.Select;
-        select.performed += OnSelectPressed;
-        select.Enable();
-    }*/
 
     private void OnDisable()
     {
@@ -108,35 +108,12 @@ public class AdvanceDialogue : MonoBehaviour
     void Update()
     {
         DestroyDuplicateDialoguesIfPresent();
-        /*if (Input.GetKeyDown(KeyCode.Z) && !isDialogueEnded)
-        {
-
-            lineNumber++;
-            if (lineNumber < dialogueList.Length)
-            {
-                currentDialogue.text = dialogueList[lineNumber];
-            }
-            else
-            {
-                isDialogueEnded = true;
-                if (isPostBattle)
-                {
-                    Parameters.singleton.NextStage();
-                } 
-                else
-                {
-                    StartBossFight();
-                }
-                Destroy(transform.parent.gameObject);
-            }
-        }*/
     }
 
     void StartBossFight()
     {
         PlayerController.singleton.EnableDestructiveInputActions();
         (healthbar = Instantiate(healthbar, GameObject.Find("Canvas").transform)).GetComponent<GetBossHealth>().boss = boss;
-        //boss.GetComponent<BossCollision>().phase = 1;
         boss.GetComponent<BossController>().healthbar = healthbar.GetComponent<Slider>();
         healthbar.GetComponent<Slider>().maxValue = boss.GetComponent<BossController>().phaseHealths[0];
         boss.GetComponent<BossController>().emitters[0] = Instantiate(emitter0, boss.transform);

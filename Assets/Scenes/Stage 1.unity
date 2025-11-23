@@ -1717,12 +1717,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 7
+  moveSpeedNormal: 7
+  moveSpeedFocused: 3.5
   emitter: {fileID: 494768301}
   emitter2: {fileID: 138877597}
   emitter3: {fileID: 1912121827}
   spell: {fileID: 6873944969241288913, guid: e21a66c6ec711824f8a8d160f2233322, type: 3}
-  firingDisabled: 0
-  isPostBoss: 0
 --- !u!4 &363382576
 Transform:
   m_ObjectHideFlags: 0
@@ -4799,7 +4799,6 @@ MonoBehaviour:
   sceneName: 
   score: 0
   isBoss: 0
-  isBossDead: 0
   stageSwitchInitiated: 0
   fadeTransition: {fileID: 1260945019}
   continueScreen: {fileID: 0}
@@ -8640,6 +8639,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: Stage 1 Paths
       objectReference: {fileID: 0}
+    - target: {fileID: 54441225598721393, guid: d284c6952b94a3442bc356ee00bda9b6, type: 3}
+      propertyPath: resetLocationTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 54441226724130927, guid: d284c6952b94a3442bc356ee00bda9b6, type: 3}
+      propertyPath: resetLocationTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 54441226912699866, guid: d284c6952b94a3442bc356ee00bda9b6, type: 3}
+      propertyPath: resetLocationTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3170867848876115683, guid: d284c6952b94a3442bc356ee00bda9b6, type: 3}
+      propertyPath: movementSpeed
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3170867848876115683, guid: d284c6952b94a3442bc356ee00bda9b6, type: 3}
+      propertyPath: groundIsTerrain
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3170867848876115683, guid: d284c6952b94a3442bc356ee00bda9b6, type: 3}
       propertyPath: paths.Array.data[0]
       value: 
@@ -8652,6 +8671,10 @@ PrefabInstance:
       propertyPath: paths.Array.data[2]
       value: 
       objectReference: {fileID: 1211605706}
+    - target: {fileID: 3170867848876115683, guid: d284c6952b94a3442bc356ee00bda9b6, type: 3}
+      propertyPath: normalGroundIsTerrain
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4279583232909244002, guid: d284c6952b94a3442bc356ee00bda9b6, type: 3}
       propertyPath: m_LocalPosition.x
       value: -120

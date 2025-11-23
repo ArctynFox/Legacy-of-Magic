@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class BulletSpawner : MonoBehaviour
@@ -23,7 +21,6 @@ public class BulletSpawner : MonoBehaviour
     public int lineCount = 1;//number of bullets shot out at one angle on the arc
     public float deltaSpeed = 1;//the difference in speed between the bullets in a line
     public string bulletSoundName;//sound played for each round of bullet instantiations, if null, will not make sound
-    GameObject bulletSoundParent;
     AudioSource[] bulletSounds;
 
 
@@ -137,15 +134,20 @@ public class BulletSpawner : MonoBehaviour
                 for (int i = 0; i < lineCount; i++)//instantiates the bullets in the line
                 {
                     GameObject bullet = Instantiate(bulletType, spawnLocations[k] + transform.position, Quaternion.Euler(0, 0, directions[k]));//instantiates the current bullet
-                    MoveDanmaku tmp = bullet.GetComponent<MoveDanmaku>();
-                    tmp.moveSpeed = moveSpeed + (deltaSpeed * i);//sets the moveSpeed and direction for the bullet, necessary because these values need to keep existing even after the enemy the bullet was fired from is gone
-                    tmp.direction = spawnLocations[k].normalized;
-                    AngleOrbit tmpAng = bullet.GetComponent<AngleOrbit>();
-                    tmpAng.firedFrom = gameObject;//in the angleOrbit component of the bullet, passes through the specified values. They are only used if isOrbit is true, though.
-                    tmpAng.offsetAngle = orbitAngle;
-                    tmpAng.isOrbit = isOrbit;
-                    tmpAng.stopTime = orbitStopTime;
 
+                    if (bullet.TryGetComponent<MoveDanmaku>(out var mD))
+                    {
+                        mD.moveSpeed = moveSpeed + (deltaSpeed * i);//sets the moveSpeed and direction for the bullet, necessary because these values need to keep existing even after the enemy the bullet was fired from is gone
+                        mD.direction = spawnLocations[k].normalized;
+                    }
+                    
+                    if (bullet.TryGetComponent<AngleOrbit>(out var aO))
+                    {
+                        aO.firedFrom = gameObject;//in the angleOrbit component of the bullet, passes through the specified values. They are only used if isOrbit is true, though.
+                        aO.offsetAngle = orbitAngle;
+                        aO.isOrbit = isOrbit;
+                        aO.stopTime = orbitStopTime;
+                    }
                 }
                 k++;
             }

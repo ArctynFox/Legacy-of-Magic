@@ -49,7 +49,7 @@ public class Stage1Script : MonoBehaviour
         yield return new WaitForSeconds(15);
         Instantiate(difficultEnemy).transform.position = new Vector3(-7f, 10f);
         Instantiate(difficultEnemy).transform.position = new Vector3(7f, 10f);
-        yield return new WaitForSeconds(20);
+        yield return new WaitForSeconds(30);
         Instantiate(boss);
         yield return null;
     }
