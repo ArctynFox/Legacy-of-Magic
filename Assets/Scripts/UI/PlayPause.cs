@@ -70,7 +70,7 @@ public class PlayPause : MonoBehaviour
         Parameters.singleton.score = 0;
         Parameters.singleton.continues--;
         Debug.Log("Using a continue. " + Parameters.singleton.continues + " continues remaining.");
-        Parameters.singleton.setLives();
+        Parameters.singleton.setCurrentLives();
         continueMenu.SetActive(false); 
         Time.timeScale = 1;
         EventSystem.current.SetSelectedGameObject(null);
@@ -81,17 +81,17 @@ public class PlayPause : MonoBehaviour
     {
         Debug.Log("Restarting from stage 1.");
         Parameters.singleton.score = 0;
-        Parameters.singleton.setLives();
+        Parameters.singleton.setCurrentLives();
         Parameters.singleton.setBombs();
         Parameters.singleton.continues = 5;
-        Parameters.singleton.stage = 0;
+        Parameters.singleton.stageID = 0;
         Parameters.singleton.NextStage();
     }
 
     public void ReturnToMenu()
     {
         Debug.Log("Returning to Main Menu.");
-        Parameters.singleton.stage = -1;
+        Parameters.singleton.stageID = -1;
         Parameters.singleton.NextStage();
     }
 }

@@ -60,7 +60,7 @@
     <Compile Include="Assets\Scripts\Bullet Controllers\RandomBulletAngle.cs" />
     <Compile Include="Assets\Scripts\UI\AdvanceDialogue.cs" />
     <Compile Include="Assets\Scripts\Bullet Controllers\RandomXPos.cs" />
-    <Compile Include="Assets\Scripts\Parameters\SendContButton.cs" />
+    <Compile Include="Assets\Scripts\Parameters\SendContinueMenuToParams.cs" />
     <Compile Include="Assets\Scripts\UserInput\InputManager.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerCollision.cs" />
     <Compile Include="Assets\Scripts\Bullet Controllers\DestroyAfterTime.cs" />
@@ -82,7 +82,7 @@
     <Compile Include="Assets\Scripts\Spawner\BulletSpawner.cs" />
     <Compile Include="Assets\Scripts\Bullet Controllers\RandomOrbitAngle.cs" />
     <Compile Include="Assets\Scripts\Enemy Controllers\GetBossHealth.cs" />
-    <Compile Include="Assets\Scripts\Parameters\SendGameOverButton.cs" />
+    <Compile Include="Assets\Scripts\Parameters\SendGameOverMenuToParams.cs" />
     <Compile Include="Assets\Scripts\Stages\Spawner Scripts\Stage3Script.cs" />
     <Compile Include="Assets\Scripts\Spawner\BulletLineRotationRange.cs" />
     <Compile Include="Assets\Scripts\Parameters\SendFadeTransitionImageToParam.cs" />
@@ -92,13 +92,11 @@
     <Compile Include="Assets\Scripts\Enemy Controllers\OnCollisionWithBullets.cs" />
     <Compile Include="Assets\Scripts\Parameters\LifeSettingToParams.cs" />
     <Compile Include="Assets\Scripts\Spawner\BaseRotationOnOtherSpawner.cs" />
-    <Compile Include="Assets\Scripts\Parameters\SendGameOverMenu.cs" />
     <Compile Include="Assets\Scripts\UserInput\InputActions.cs" />
     <Compile Include="Assets\Scripts\UI\AdvanceStageOnSelect.cs" />
     <Compile Include="Assets\Scripts\Parameters\SendGraphicReferencesToParam.cs" />
     <Compile Include="Assets\Scripts\Spawner\DisableSpawnerAfterTime.cs" />
     <Compile Include="Assets\Scripts\Enemy Controllers\MoveOnSpawnAndStop.cs" />
-    <Compile Include="Assets\Scripts\Parameters\SendContMenu.cs" />
     <Compile Include="Assets\Scripts\Stages\Spawner Scripts\Stage2Script.cs" />
     <Compile Include="Assets\Scripts\Spawner\DirectionRotator.cs" />
     <Compile Include="Assets\Scripts\Bullet Controllers\BulletGravity.cs" />

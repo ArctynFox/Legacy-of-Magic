@@ -9,7 +9,7 @@ public class BulletDestroyer : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("Bullet") || other.gameObject.CompareTag("PlayerBullet"))
+        if (other.gameObject.CompareTag("Bullet"))
         {
             Instantiate(destroyEffect, other.transform).transform.SetParent(null);
             Destroy(other.gameObject);

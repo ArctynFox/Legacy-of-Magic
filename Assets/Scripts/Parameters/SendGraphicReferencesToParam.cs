@@ -1,5 +1,7 @@
 using UnityEngine;
 
+//ライフとスペルカードの画像をパラメタースクリプトに送る
+
 public class SendGraphicReferencesToParam : MonoBehaviour
 {
     [SerializeField]

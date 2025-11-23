@@ -21,9 +21,9 @@ public class TitleScreen : MonoBehaviour
     public void StartGame()
     {
         Debug.Log("Starting game.");
-        Parameters.singleton.setLives();
+        Parameters.singleton.setCurrentLives();
         Parameters.singleton.setBombs();
-        Parameters.singleton.stage = 0;
+        Parameters.singleton.stageID = 0;
         Parameters.singleton.score = 0;
         Parameters.singleton.NextStage();
     }
