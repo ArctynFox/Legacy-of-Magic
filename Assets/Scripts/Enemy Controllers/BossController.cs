@@ -39,7 +39,7 @@ public class BossController : MonoBehaviour
     public Text timerText;
     public GameObject[] emitters;
     public GameObject canvas;
-    AdvanceDialogue preDialogue;
+    DialogueManager preDialogue;
 
     //ダイアログが終わったかどうか
     public bool dialogueOver = false;
@@ -65,7 +65,7 @@ public class BossController : MonoBehaviour
         //ボス戦前のダイアログを開始
         bossDialoguePre = Parameters.singleton.instantiatePreBossDialogue(bossDialoguePre);//start the pre-boss-fight dialogue
         //必要なデータをダイアログスクリプトに渡す
-        preDialogue = bossDialoguePre.GetComponentInChildren<AdvanceDialogue>();
+        preDialogue = bossDialoguePre.GetComponentInChildren<DialogueManager>();
         preDialogue.boss = gameObject;//give the dialogue a reference to the boss object
         preDialogue.emitter0 = emittersPrefabs[0];//informs the dialogue of various objects necessary to start the battle
         preDialogue.healthbar = healthbarObject;

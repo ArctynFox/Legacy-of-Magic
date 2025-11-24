@@ -1,13 +1,14 @@
 using UnityEngine;
 using UnityEngine.UI;
 
+//がっ免状のスコアを現在のスコアに更新
+
 public class UpdateScore : MonoBehaviour
 {
 
     public Text scoreG;
     public Text scoreY;
 
-    // Update is called once per frame
     void FixedUpdate()
     {
         scoreG.text = Parameters.singleton.score.ToString();

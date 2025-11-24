@@ -58,7 +58,7 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\UI\TitleScreen.cs" />
     <Compile Include="Assets\Scripts\Bullet Controllers\RandomBulletAngle.cs" />
-    <Compile Include="Assets\Scripts\UI\AdvanceDialogue.cs" />
+    <Compile Include="Assets\Scripts\UI\DialogueManager.cs" />
     <Compile Include="Assets\Scripts\Bullet Controllers\RandomXPos.cs" />
     <Compile Include="Assets\Scripts\Parameters\SendContinueMenuToParams.cs" />
     <Compile Include="Assets\Scripts\UserInput\InputManager.cs" />

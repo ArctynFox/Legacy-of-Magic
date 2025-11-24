@@ -1,6 +1,8 @@
 using UnityEngine;
 using UnityEngine.UI;
 
+//ボスが現れたらボス戦BGM名の表示のテキストを変える
+
 public class UpdateBGMTitle : MonoBehaviour
 {
     bool hasUpdated = false;
