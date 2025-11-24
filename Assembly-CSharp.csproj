@@ -108,8 +108,8 @@
     <Compile Include="Assets\Scripts\Bullet Controllers\BulletDestroyer.cs" />
     <Compile Include="Assets\Scripts\Stages\Spawner Scripts\Stage5Script.cs" />
     <Compile Include="Assets\Scripts\UI\PlayPause.cs" />
-    <Compile Include="Assets\Scripts\Bullet Controllers\Rotate.cs" />
     <Compile Include="Assets\Scripts\Audio\DestroyWhenAudioClipFinishes.cs" />
+    <Compile Include="Assets\Scripts\Bullet Controllers\Rotate.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

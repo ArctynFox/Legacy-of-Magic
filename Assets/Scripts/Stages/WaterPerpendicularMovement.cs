@@ -1,5 +1,8 @@
 using UnityEngine;
 
+//波があるように見せるために水テクスチャをオーバーレイするため
+//機能的にはStageTerrainMoveに似ている
+
 public class WaterPerpendicularMovement : MonoBehaviour
 {
     //移動速度

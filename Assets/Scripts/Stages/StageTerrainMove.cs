@@ -1,5 +1,7 @@
 using UnityEngine;
 
+//地面に追加すると、指定方向と速度で動く。指定座標を通り過ぎたら位置をリセット
+
 public class StageTerrainMove : MonoBehaviour
 {
     //移動速度
