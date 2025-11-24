@@ -53,14 +53,15 @@ public class BulletSpawner : MonoBehaviour
     public float orbitStopTime = 99f;//stop time for orbital movement, the angle will slowly even out such that it continues in a straight direction once this time is reached
 
     [Header("Firing Sound Settings")]
-    //発射の際のオーディオ名
+    //発射の際のAudioClip
     [Tooltip("Name of the sound to play when firing a round.")]
-    public string bulletSoundName;//sound played for each round of bullet instantiations, if null, will not make sound
     public AudioClip bulletSoundClip;
+    //ベース発射オーディオプレハブ
+    [Tooltip("The base SFX prefab for firing sounds.")]
     public GameObject bulletSoundPrefab;
+    //発射オーディオ音量
+    [Tooltip("Volume to play the audio file at.")]
     public float bulletSoundVolume = 0.15f;
-    //発射の際のオーディオソース配列
-    AudioSource[] bulletSounds;
 
     //計算された放射状ライン角度配列
     float[] directions;//the directions for all the bullets in the arc
@@ -93,20 +94,15 @@ public class BulletSpawner : MonoBehaviour
     
     void Start()
     {
-        /*if(bulletSoundName != "")//gets the AudioSource by GameObject name if given
-        {
-            bulletSounds = GameObject.Find(bulletSoundName).GetComponentsInChildren<AudioSource>();
-        }*/
+        //最初の発射までのフレーム数を計算
         framesSinceLastSpawn = (int)-Mathf.Floor(secondsBeforeFirstSpawn * (int)(1 / Time.fixedDeltaTime));//controls how long it will be until the first round of bullets is instantiated, used later
         
+        //shootAtPlayerがtrueだったらプレイヤーを狙う
         player = PlayerController.singleton.gameObject;
         if (shootAtPlayer)
         {
-            Vector3 tmpDir = (player.transform.position - transform.position).normalized;//gets the vector from player to bullet and normalizes it
-            arcCenter = Mathf.Atan2(tmpDir.y, tmpDir.x) * Mathf.Rad2Deg;//gets the angle of the normalized vector found above, and makes it the center of the arc of bullets
+            AimAtPlayer();
         }
-        directions = new float[arcCount];//make a float array that holds the directions to fire each bullet in a barrage
-        spawnLocations = new Vector3[arcCount];//make a Vector3 array that determines the spawn positions of each bullet using the corresponding float from directions
 
         SetPreviousFrameSpawnDetails();
 
@@ -117,8 +113,7 @@ public class BulletSpawner : MonoBehaviour
     {
         if (shootAtPlayer)
         {
-            Vector3 tmpDir = (player.transform.position - transform.position).normalized;//same as lines 54 and 55
-            arcCenter = Mathf.Atan2(tmpDir.y, tmpDir.x) * Mathf.Rad2Deg;
+            AimAtPlayer();
         }
         if(SpawnDetailsHaveChanged())
         {
@@ -140,6 +135,7 @@ public class BulletSpawner : MonoBehaviour
         else framesSinceLastSpawn++;//if bullets were not spawned on this frame, increments
     }
 
+    //前フレームのスポーンに関する設定を記録
     void SetPreviousFrameSpawnDetails()
     {
         dSPS = spawnsPerSecond;
@@ -148,37 +144,46 @@ public class BulletSpawner : MonoBehaviour
         dCe = arcCenter;
     }
 
+    //前フレームのスポーン設定が今のと違うかどうか
     bool SpawnDetailsHaveChanged()
     {
         return dSPS != spawnsPerSecond || dCo != arcCount || dD != arcDegrees || dCe != arcCenter;
     }
 
+    //全てのスポーンに関する変数を計算
     void CalculateSpawnDetails()
     {
-            int center = (int)Mathf.Floor((arcCount - 1f) / 2);
-            centerPLC = arcCenter;
-            if (arcCount % 2 == 0)
-            {
-                centerPLC -= arcDegrees / arcCount / 2;
-            }
+        //中心放射状ラインの角度を計算
+        int center = (int)Mathf.Floor((arcCount - 1f) / 2);
+        //角度のオフセットを計算
+        centerPLC = arcCenter;
+        if (arcCount % 2 == 0)
+        {
+            centerPLC -= arcDegrees / arcCount / 2;
+        }
 
-            CalculateDirections(center);
+        //全放射状ラインの角度を計算
+        CalculateDirections(center);
 
-            CalculateSpawnLocations();
+        //放射状ラインごとのスポーン位置を計算
+        CalculateSpawnLocations();
 
-            framesPerSpawn = (int)(Mathf.Floor((int)(1 / Time.fixedDeltaTime) / spawnsPerSecond));
+        //スポーン間のフレーム数を計算
+        framesPerSpawn = (int)(Mathf.Floor((int)(1 / Time.fixedDeltaTime) / spawnsPerSecond));
     }
 
+    //放射状ラインの方向角度を計算
     void CalculateDirections(int center)
     {
-            directions = new float[arcCount];
+        directions = new float[arcCount];
 
-            for(int i = 0; i < directions.Length; i++)
-            {
-                directions[i] = centerPLC + (arcDegrees / arcCount * ((float)i - center - (((arcCount % 2) - 1) / 2)));
-            }
+        for(int i = 0; i < directions.Length; i++)
+        {
+            directions[i] = centerPLC + (arcDegrees / arcCount * ((float)i - center - (((arcCount % 2) - 1) / 2)));
+        }
     }
 
+    //放射状ラインごとのスポーン位置を計算
     void CalculateSpawnLocations()
     {
         spawnLocations = new Vector3[arcCount];
@@ -191,37 +196,49 @@ public class BulletSpawner : MonoBehaviour
         }
     }
 
+    //設定を使用して弾を発射
     void FireBulletRound()
     {
         int spawnLocationIndex = 0;
-        foreach (Vector3 vec in spawnLocations)//bullets get spawned according to the vector3 values calculated above
+        //放射状ラインごとに
+        foreach (Vector3 _ in spawnLocations)//bullets get spawned according to the vector3 values calculated and put into spawnLocations
         {
+            //そのラインの弾数によって
             for (int linePositionIndex = 0; linePositionIndex < lineCount; linePositionIndex++)//instantiates the bullets in the line
             {
+                //弾をスポーン
                 SpawnBullet(spawnLocationIndex, linePositionIndex);
             }
             spawnLocationIndex++;
         }
+        //発射音を再生
         PlayShootSound();
+        //発射クールダウンをリセット
         framesSinceLastSpawn = 0;//resets the value so that it can count up to the next spawn frame again
     }
 
+    //一つの弾をスポーン
     void SpawnBullet(int spawnPositionIndex, int linePositionIndex)
     {
+        //BulletPoolが存在していたら、スポーンする弾をそれの子オブジェクトにする
         GameObject bulletPoolGameObject = GameObject.Find("BulletPool");
         Transform bulletPoolTransform = null;
         if(bulletPoolGameObject != null)
         {
             bulletPoolTransform = bulletPoolGameObject.transform;
         }
+
+        //弾をスポーン
         GameObject bullet = Instantiate(bulletType, spawnLocations[spawnPositionIndex] + transform.position, Quaternion.Euler(0, 0, directions[spawnPositionIndex]), bulletPoolTransform);//instantiates the current bullet
         
+        //スポーンした弾の移動方向と速度を設定
         if (bullet.TryGetComponent<MoveDanmaku>(out var mD))
         {
             mD.moveSpeed = moveSpeed + (deltaSpeed * linePositionIndex);//sets the moveSpeed and direction for the bullet, necessary because these values need to keep existing even after the enemy the bullet was fired from is gone
             mD.direction = spawnLocations[spawnPositionIndex].normalized;
         }
         
+        //スポーンした弾の軌道設定を設定
         if (bullet.TryGetComponent<AngleOrbit>(out var aO))
         {
             aO.firedFrom = gameObject;//in the angleOrbit component of the bullet, passes through the specified values. They are only used if isOrbit is true, though.
@@ -231,22 +248,21 @@ public class BulletSpawner : MonoBehaviour
         }
     }
 
+    //プレイヤーを狙う
+    void AimAtPlayer()
+    {
+        //スポナーからプレイヤーまでの方向ベクトルを計算
+        Vector3 directionToPlayer = (player.transform.position - transform.position).normalized;//gets the vector from the spawner to the player and normalizes it
+        //発射方向の角度を計算して設定
+        arcCenter = Mathf.Atan2(directionToPlayer.y, directionToPlayer.x) * Mathf.Rad2Deg;//gets the angle of the normalized vector found above, and makes it the center of the arc of bullets
+    }
+
+    //指定発射音を再生
     void PlayShootSound()
     {
-        /*if(bulletSounds != null)//makes sure bulletSound type isn't null before trying to play its audio, then play the first AudioSource of that type that isn't already playing (multiple of the same clip exist to prevent cutting off the previous play)
-        {
-            for(int i = 0; i < bulletSounds.Length; i++)
-            {
-                if (!bulletSounds[i].isPlaying)
-                {
-                    bulletSounds[i].Play();
-                    return;
-                }
-            }
-        }*/
-
         if (bulletSoundClip != null)
         {
+            //Sfxが存在していたら、スポーンする発射音をそれの子オブジェクトにする
             GameObject sfx = GameObject.Find("Sfx");
             if (sfx != null)
             {
