@@ -43,21 +43,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 922dd6169b764b24d806bb5f614b53d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletType: {fileID: 3697513255826693274, guid: 74a769cfbf9ce2f4a9aeacacc369ce16, type: 3}
-  moveSpeed: 3
+  secondsBeforeFirstSpawn: 1
   spawnsPerSecond: 0.5
   bulletSpawnRadius: 0.25
+  arcCenter: -90
+  shootAtPlayer: 1
   arcCount: 2
   arcDegrees: 30
-  arcCenter: -90
+  lineCount: 3
+  deltaSpeed: 1
+  bulletType: {fileID: 3697513255826693274, guid: 74a769cfbf9ce2f4a9aeacacc369ce16, type: 3}
+  moveSpeed: 3
   isOrbit: 0
   orbitAngle: 25
   orbitStopTime: 1.5
-  shootAtPlayer: 1
-  lineCount: 3
-  deltaSpeed: 1
   bulletSoundName: EnemyBullet
-  secondsBeforeFirstSpawn: 1
+  bulletSoundClip: {fileID: 8300000, guid: 6a53ee8c99ee9d346b1bb98b23032a99, type: 3}
+  bulletSoundPrefab: {fileID: 405433325789816574, guid: 10460f5fca0c3354ca80ab29d99430aa, type: 3}
+  bulletSoundVolume: 0.15
 --- !u!1 &8531040691310690758
 GameObject:
   m_ObjectHideFlags: 0
@@ -69,12 +72,8 @@ GameObject:
   - component: {fileID: 8531040691310690757}
   - component: {fileID: 8531040691310690755}
   - component: {fileID: 8531040691310690756}
-  - component: {fileID: 168582311307790605}
-  - component: {fileID: 2242647749689862143}
-  - component: {fileID: 8720600523821655844}
   - component: {fileID: 6657338840798219175}
   - component: {fileID: 715658183021973587}
-  - component: {fileID: 1897994821070334453}
   m_Layer: 0
   m_Name: WeakEnemyStage3
   m_TagString: Enemy
@@ -128,53 +127,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 10
   scoreWeight: 100
-  deathParticles: {fileID: 6415397389214508785, guid: 08de77296f01c954c9a1a9d56a14688c, type: 3}
---- !u!114 &168582311307790605
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8531040691310690758}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0be334e70ce179841857354002b3297c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 1
-  direction: {x: 0, y: 0, z: 0}
---- !u!114 &2242647749689862143
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8531040691310690758}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 92c2de7b55cba0941822648a6acaa566, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  firedFrom: {fileID: 0}
-  offsetAngle: 75
-  isOrbit: 0
-  angleZeroSpeed: 0.125
-  stopTime: 1.5
---- !u!114 &8720600523821655844
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8531040691310690758}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 81983f4cf9e3c20409c3c6cf95f3b25d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveScript: {fileID: 168582311307790605}
-  loopTime: 5
-  startTime: 4
+  damageParticles: {fileID: 6415397389214508785, guid: 08de77296f01c954c9a1a9d56a14688c, type: 3}
 --- !u!114 &6657338840798219175
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -204,20 +157,6 @@ MonoBehaviour:
   stopYValue: 99
   moveSpeed: 3
   moveDir: {x: 1, y: 0, z: 0}
---- !u!114 &1897994821070334453
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8531040691310690758}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0daa356d68d1ac41839e0e182953242, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  secondsUntilLeave: 3
-  moveSpeed: 3
 --- !u!1 &8531040691494054079
 GameObject:
   m_ObjectHideFlags: 0

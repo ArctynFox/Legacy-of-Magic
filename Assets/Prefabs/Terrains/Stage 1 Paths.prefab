@@ -123,7 +123,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e645dbfca2c573458dcddce69263617, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movement: {x: -0.5, y: 0, z: 0}
+  movementSpeed: 0.5
+  bossAppearMovementMultiplier: 8
+  resetXDistance: -120
+  resetLocationTrigger: 0
 --- !u!1 &54441226724130924
 GameObject:
   m_ObjectHideFlags: 0
@@ -213,7 +216,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e645dbfca2c573458dcddce69263617, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movement: {x: -0.5, y: 0, z: 0}
+  movementSpeed: 0.5
+  bossAppearMovementMultiplier: 8
+  resetXDistance: -120
+  resetLocationTrigger: 0
 --- !u!1 &54441226912699430
 GameObject:
   m_ObjectHideFlags: 0
@@ -303,7 +309,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e645dbfca2c573458dcddce69263617, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movement: {x: -0.5, y: 0, z: 0}
+  movementSpeed: 0.5
+  bossAppearMovementMultiplier: 8
+  resetXDistance: -120
+  resetLocationTrigger: 0
 --- !u!1 &5389597266686141712
 GameObject:
   m_ObjectHideFlags: 0
@@ -393,4 +402,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3cbf2e60392a5649a0fe27d70f05cb1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movement: {x: -0.5, y: 0, z: 0}
+  paths:
+  - {fileID: 54441225598721406}
+  - {fileID: 54441226912699430}
+  - {fileID: 54441226724130924}

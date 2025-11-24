@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6415397389214508784}
   - component: {fileID: 1326218455501907213}
   m_Layer: 0
-  m_Name: EnemyDeathParticles
+  m_Name: EnemyDamageParticles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

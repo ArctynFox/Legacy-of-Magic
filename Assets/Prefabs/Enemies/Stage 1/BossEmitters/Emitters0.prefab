@@ -43,18 +43,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 922dd6169b764b24d806bb5f614b53d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletType: {fileID: 5078896617114211090, guid: a815b7c843def414085c715d0738407a, type: 3}
-  moveSpeed: 5
+  secondsBeforeFirstSpawn: 0
   spawnsPerSecond: 3
   bulletSpawnRadius: 0.25
+  arcCenter: -90
+  shootAtPlayer: 1
   arcCount: 3
   arcDegrees: 20
-  arcCenter: -90
+  lineCount: 1
+  deltaSpeed: 1
+  bulletType: {fileID: 5078896617114211090, guid: a815b7c843def414085c715d0738407a, type: 3}
+  moveSpeed: 5
   isOrbit: 0
   orbitAngle: 0
   orbitStopTime: 1.5
-  shootAtPlayer: 1
-  lineCount: 1
-  deltaSpeed: 1
   bulletSoundName: GunBullet
-  secondsBeforeFirstSpawn: 0
+  bulletSoundClip: {fileID: 8300000, guid: e8d9c0a933bcbae488f95b7c02a5888e, type: 3}
+  bulletSoundPrefab: {fileID: 405433325789816574, guid: 10460f5fca0c3354ca80ab29d99430aa, type: 3}
+  bulletSoundVolume: 0.3

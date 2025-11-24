@@ -93,9 +93,6 @@ GameObject:
   - component: {fileID: 2678499292782571575}
   - component: {fileID: 2678499292782571569}
   - component: {fileID: 2678499292782571574}
-  - component: {fileID: 5843776884451637503}
-  - component: {fileID: 5499128904521963021}
-  - component: {fileID: 3047357346519127766}
   - component: {fileID: 1093309017464961621}
   - component: {fileID: 709750899657618045}
   - component: {fileID: 1803110735539029152}
@@ -152,53 +149,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 35
   scoreWeight: 5000
-  deathParticles: {fileID: 6415397389214508785, guid: 08de77296f01c954c9a1a9d56a14688c, type: 3}
---- !u!114 &5843776884451637503
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2678499292782571572}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0be334e70ce179841857354002b3297c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 1
-  direction: {x: 0, y: 0, z: 0}
---- !u!114 &5499128904521963021
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2678499292782571572}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 92c2de7b55cba0941822648a6acaa566, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  firedFrom: {fileID: 0}
-  offsetAngle: 75
-  isOrbit: 0
-  angleZeroSpeed: 0.125
-  stopTime: 1.5
---- !u!114 &3047357346519127766
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2678499292782571572}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 81983f4cf9e3c20409c3c6cf95f3b25d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveScript: {fileID: 5843776884451637503}
-  loopTime: 5
-  startTime: 4
+  damageParticles: {fileID: 6415397389214508785, guid: 08de77296f01c954c9a1a9d56a14688c, type: 3}
 --- !u!114 &1093309017464961621
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -288,21 +239,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 922dd6169b764b24d806bb5f614b53d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletType: {fileID: 8548977232664947099, guid: 774458b93ef88a2458043bcb19a76632, type: 3}
-  moveSpeed: 8
+  secondsBeforeFirstSpawn: 0
   spawnsPerSecond: 1
   bulletSpawnRadius: 0.25
+  arcCenter: -90
+  shootAtPlayer: 1
   arcCount: 1
   arcDegrees: 0
-  arcCenter: -90
+  lineCount: 5
+  deltaSpeed: 1.5
+  bulletType: {fileID: 8548977232664947099, guid: 774458b93ef88a2458043bcb19a76632, type: 3}
+  moveSpeed: 8
   isOrbit: 0
   orbitAngle: 25
   orbitStopTime: 1.5
-  shootAtPlayer: 1
-  lineCount: 5
-  deltaSpeed: 1.5
   bulletSoundName: EnemyBullet
-  secondsBeforeFirstSpawn: 0
+  bulletSoundClip: {fileID: 8300000, guid: 6a53ee8c99ee9d346b1bb98b23032a99, type: 3}
+  bulletSoundPrefab: {fileID: 405433325789816574, guid: 10460f5fca0c3354ca80ab29d99430aa, type: 3}
+  bulletSoundVolume: 0.15
 --- !u!114 &7057877061632058382
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -329,21 +283,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 922dd6169b764b24d806bb5f614b53d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletType: {fileID: 1600483560308272872, guid: 859aa7a743bb0044ea4c82dacb0bf3eb, type: 3}
-  moveSpeed: 8
+  secondsBeforeFirstSpawn: 0
   spawnsPerSecond: 1
   bulletSpawnRadius: 0.25
+  arcCenter: 90
+  shootAtPlayer: 1
   arcCount: 5
   arcDegrees: 15
-  arcCenter: 90
+  lineCount: 1
+  deltaSpeed: 1
+  bulletType: {fileID: 1600483560308272872, guid: 859aa7a743bb0044ea4c82dacb0bf3eb, type: 3}
+  moveSpeed: 8
   isOrbit: 0
   orbitAngle: 0
   orbitStopTime: 99
-  shootAtPlayer: 1
-  lineCount: 1
-  deltaSpeed: 1
   bulletSoundName: 
-  secondsBeforeFirstSpawn: 0
+  bulletSoundClip: {fileID: 0}
+  bulletSoundPrefab: {fileID: 0}
+  bulletSoundVolume: 1
 --- !u!114 &2968927556834892387
 MonoBehaviour:
   m_ObjectHideFlags: 0

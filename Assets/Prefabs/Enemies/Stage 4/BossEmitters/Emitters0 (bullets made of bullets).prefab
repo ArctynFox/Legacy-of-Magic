@@ -46,21 +46,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 922dd6169b764b24d806bb5f614b53d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletType: {fileID: 8548977232664947099, guid: 774458b93ef88a2458043bcb19a76632, type: 3}
-  moveSpeed: 3
+  secondsBeforeFirstSpawn: 0
   spawnsPerSecond: 4
   bulletSpawnRadius: 0.25
+  arcCenter: 90
+  shootAtPlayer: 0
   arcCount: 8
   arcDegrees: 360
-  arcCenter: 90
+  lineCount: 1
+  deltaSpeed: 1
+  bulletType: {fileID: 8548977232664947099, guid: 774458b93ef88a2458043bcb19a76632, type: 3}
+  moveSpeed: 3
   isOrbit: 0
   orbitAngle: 0
   orbitStopTime: 99
-  shootAtPlayer: 0
-  lineCount: 1
-  deltaSpeed: 1
   bulletSoundName: EnemyBullet
-  secondsBeforeFirstSpawn: 0
+  bulletSoundClip: {fileID: 8300000, guid: 6a53ee8c99ee9d346b1bb98b23032a99, type: 3}
+  bulletSoundPrefab: {fileID: 405433325789816574, guid: 10460f5fca0c3354ca80ab29d99430aa, type: 3}
+  bulletSoundVolume: 0.15
 --- !u!114 &1217146578121148785
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -73,21 +76,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 922dd6169b764b24d806bb5f614b53d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletType: {fileID: 3578773489403404833, guid: 7ececfbf210a34645a42409a5005eca8, type: 3}
-  moveSpeed: 2
+  secondsBeforeFirstSpawn: 0
   spawnsPerSecond: 0.5
   bulletSpawnRadius: 0.25
+  arcCenter: 90
+  shootAtPlayer: 1
   arcCount: 1
   arcDegrees: 0
-  arcCenter: 90
+  lineCount: 1
+  deltaSpeed: 1
+  bulletType: {fileID: 3578773489403404833, guid: 7ececfbf210a34645a42409a5005eca8, type: 3}
+  moveSpeed: 2
   isOrbit: 0
   orbitAngle: 0
   orbitStopTime: 99
-  shootAtPlayer: 1
-  lineCount: 1
-  deltaSpeed: 1
   bulletSoundName: 
-  secondsBeforeFirstSpawn: 0
+  bulletSoundClip: {fileID: 0}
+  bulletSoundPrefab: {fileID: 0}
+  bulletSoundVolume: 0.15
 --- !u!114 &1217146578121148784
 MonoBehaviour:
   m_ObjectHideFlags: 0

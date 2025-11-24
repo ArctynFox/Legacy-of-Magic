@@ -11,18 +11,18 @@ public class OnCollisionWithBullets : MonoBehaviour
     public int scoreWeight = 100;
 
     //敵が死んだらこのアニメーションプレハブをスポーン
-    public GameObject deathParticles;
+    public GameObject damageParticles;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("PlayerBullet"))
         {
             health--;
+            Instantiate(damageParticles, transform).transform.SetParent(null);
 
             //敵が死んだら
             if(health <= 0)
             {
-                Instantiate(deathParticles, transform).transform.SetParent(null);
                 Parameters.singleton.score += scoreWeight;
                 //自分を削除
                 Destroy(gameObject);

@@ -164,21 +164,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 922dd6169b764b24d806bb5f614b53d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletType: {fileID: 8796589397641942734, guid: 354c6565f2a17554993402832e95f2c3, type: 3}
-  moveSpeed: 10
+  secondsBeforeFirstSpawn: 1.5
   spawnsPerSecond: 1
   bulletSpawnRadius: 0.25
+  arcCenter: 90
+  shootAtPlayer: 1
   arcCount: 17
   arcDegrees: 360
-  arcCenter: 90
+  lineCount: 1
+  deltaSpeed: 1
+  bulletType: {fileID: 8796589397641942734, guid: 354c6565f2a17554993402832e95f2c3, type: 3}
+  moveSpeed: 10
   isOrbit: 0
   orbitAngle: 15
   orbitStopTime: 99
-  shootAtPlayer: 1
-  lineCount: 1
-  deltaSpeed: 1
   bulletSoundName: BubbleBullet
-  secondsBeforeFirstSpawn: 1.5
+  bulletSoundClip: {fileID: 8300000, guid: 08d778238b9a4ff44937ed4c36b7b533, type: 3}
+  bulletSoundPrefab: {fileID: 405433325789816574, guid: 10460f5fca0c3354ca80ab29d99430aa, type: 3}
+  bulletSoundVolume: 1
 --- !u!95 &1699388199057584163
 Animator:
   serializedVersion: 5
