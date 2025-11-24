@@ -1,18 +1,22 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+
+//ステージ4の敵スポーンタイミングと位置スクリプト
 
 public class Stage4Script : MonoBehaviour
 {
+    //スポーンするプレハブ
     public GameObject boss;
     public GameObject weakBook;
     public GameObject book;
 
+    //スポーンシーケンスを起動
     void Start()
     {
         StartCoroutine(EnemyTimer());
     }
 
+    //スポーンシーケンス
     IEnumerator EnemyTimer()
     {
         yield return new WaitForSeconds(4);

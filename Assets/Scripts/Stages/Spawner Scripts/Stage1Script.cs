@@ -1,8 +1,11 @@
 using System.Collections;
 using UnityEngine;
 
+//ステージ1の敵スポーンタイミングと位置スクリプト
+
 public class Stage1Script : MonoBehaviour
 {
+    //スポーンするプレハブ
     public GameObject boss;
     public GameObject weakEnemySpawner;
     public GameObject weakEnemyDownSpawner;
@@ -12,11 +15,13 @@ public class Stage1Script : MonoBehaviour
     public GameObject difficultEnemy;
     public GameObject extremeEnemy;
 
+    //スポーンシーケンスを起動
     void Start()
     {
         StartCoroutine(EnemyTimer());
     }
 
+    //スポーンシーケンス
     IEnumerator EnemyTimer()
     {
         Instantiate(weakEnemySpawner).transform.position = new Vector3(-12.5f, 7f, 0f);

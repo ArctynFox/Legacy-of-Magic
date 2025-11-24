@@ -1,20 +1,24 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+
+//ステージ3の敵スポーンタイミングと位置スクリプト
 
 public class Stage3Script : MonoBehaviour
 {
+    //スポーンするプレハブ
     public GameObject boss;
     public GameObject weakEnemy;
     public GameObject moderateEnemy;
     public GameObject difficultEnemy;
     public GameObject extremeEnemy;
 
+    //スポーンシーケンスを起動
     void Start()
     {
         StartCoroutine(EnemyTimer());
     }
 
+    //スポーンシーケンス
     IEnumerator EnemyTimer()
     {
         for(int i = 0; i < 20; i++)
