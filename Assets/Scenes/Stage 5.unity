@@ -1189,8 +1189,6 @@ MonoBehaviour:
   pauseMenu: {fileID: 885105676}
   continueMenu: {fileID: 1628580041}
   gameOverMenu: {fileID: 1204003554}
-  menuSceneName: Title Screen
-  restartSceneName: Stage 1
   firstSelected: {fileID: 1327838169}
 --- !u!114 &321106957
 MonoBehaviour:
@@ -6262,7 +6260,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 0.8
   m_Pitch: 1
-  Loop: 1
+  Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
