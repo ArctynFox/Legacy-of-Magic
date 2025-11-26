@@ -58,10 +58,9 @@ MonoBehaviour:
   isOrbit: 0
   orbitAngle: 0
   orbitStopTime: 99
-  bulletSoundName: Thunder 3
   bulletSoundClip: {fileID: 8300000, guid: fdec045a9e30b2e4987637a5f227905e, type: 3}
   bulletSoundPrefab: {fileID: 405433325789816574, guid: 10460f5fca0c3354ca80ab29d99430aa, type: 3}
-  bulletSoundVolume: 0.8
+  bulletSoundVolume: 0.4
 --- !u!114 &4682172406132170102
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -88,7 +87,6 @@ MonoBehaviour:
   isOrbit: 0
   orbitAngle: 0
   orbitStopTime: 99
-  bulletSoundName: EnemyBullet
   bulletSoundClip: {fileID: 8300000, guid: 6a53ee8c99ee9d346b1bb98b23032a99, type: 3}
   bulletSoundPrefab: {fileID: 405433325789816574, guid: 10460f5fca0c3354ca80ab29d99430aa, type: 3}
   bulletSoundVolume: 0.15
@@ -150,10 +148,9 @@ MonoBehaviour:
   isOrbit: 0
   orbitAngle: 0
   orbitStopTime: 99
-  bulletSoundName: Thunder -3
   bulletSoundClip: {fileID: 8300000, guid: fdec045a9e30b2e4987637a5f227905e, type: 3}
   bulletSoundPrefab: {fileID: 405433325789816574, guid: 10460f5fca0c3354ca80ab29d99430aa, type: 3}
-  bulletSoundVolume: 0.8
+  bulletSoundVolume: 0.4
 --- !u!114 &4682172406171497224
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -180,7 +177,6 @@ MonoBehaviour:
   isOrbit: 0
   orbitAngle: 0
   orbitStopTime: 99
-  bulletSoundName: EnemyBullet
   bulletSoundClip: {fileID: 8300000, guid: 6a53ee8c99ee9d346b1bb98b23032a99, type: 3}
   bulletSoundPrefab: {fileID: 405433325789816574, guid: 10460f5fca0c3354ca80ab29d99430aa, type: 3}
   bulletSoundVolume: 0.15
@@ -242,10 +238,9 @@ MonoBehaviour:
   isOrbit: 0
   orbitAngle: 0
   orbitStopTime: 99
-  bulletSoundName: Thunder 0
   bulletSoundClip: {fileID: 8300000, guid: fdec045a9e30b2e4987637a5f227905e, type: 3}
   bulletSoundPrefab: {fileID: 405433325789816574, guid: 10460f5fca0c3354ca80ab29d99430aa, type: 3}
-  bulletSoundVolume: 0.8
+  bulletSoundVolume: 0.4
 --- !u!114 &4682172406497586976
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -272,7 +267,6 @@ MonoBehaviour:
   isOrbit: 0
   orbitAngle: 0
   orbitStopTime: 99
-  bulletSoundName: EnemyBullet
   bulletSoundClip: {fileID: 8300000, guid: 6a53ee8c99ee9d346b1bb98b23032a99, type: 3}
   bulletSoundPrefab: {fileID: 405433325789816574, guid: 10460f5fca0c3354ca80ab29d99430aa, type: 3}
   bulletSoundVolume: 0.15
@@ -334,10 +328,9 @@ MonoBehaviour:
   isOrbit: 0
   orbitAngle: 0
   orbitStopTime: 99
-  bulletSoundName: Thunder 3
   bulletSoundClip: {fileID: 8300000, guid: fdec045a9e30b2e4987637a5f227905e, type: 3}
   bulletSoundPrefab: {fileID: 405433325789816574, guid: 10460f5fca0c3354ca80ab29d99430aa, type: 3}
-  bulletSoundVolume: 0.8
+  bulletSoundVolume: 0.4
 --- !u!114 &4682172406593028753
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -364,7 +357,6 @@ MonoBehaviour:
   isOrbit: 0
   orbitAngle: 0
   orbitStopTime: 99
-  bulletSoundName: EnemyBullet
   bulletSoundClip: {fileID: 8300000, guid: 6a53ee8c99ee9d346b1bb98b23032a99, type: 3}
   bulletSoundPrefab: {fileID: 405433325789816574, guid: 10460f5fca0c3354ca80ab29d99430aa, type: 3}
   bulletSoundVolume: 0.15
@@ -426,10 +418,9 @@ MonoBehaviour:
   isOrbit: 0
   orbitAngle: 0
   orbitStopTime: 99
-  bulletSoundName: Thunder -9
   bulletSoundClip: {fileID: 8300000, guid: fdec045a9e30b2e4987637a5f227905e, type: 3}
   bulletSoundPrefab: {fileID: 405433325789816574, guid: 10460f5fca0c3354ca80ab29d99430aa, type: 3}
-  bulletSoundVolume: 0.8
+  bulletSoundVolume: 0.4
 --- !u!114 &4682172406790366598
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -456,7 +447,6 @@ MonoBehaviour:
   isOrbit: 0
   orbitAngle: 0
   orbitStopTime: 99
-  bulletSoundName: EnemyBullet
   bulletSoundClip: {fileID: 8300000, guid: 6a53ee8c99ee9d346b1bb98b23032a99, type: 3}
   bulletSoundPrefab: {fileID: 405433325789816574, guid: 10460f5fca0c3354ca80ab29d99430aa, type: 3}
   bulletSoundVolume: 0.15
@@ -517,7 +507,6 @@ MonoBehaviour:
   isOrbit: 0
   orbitAngle: 0
   orbitStopTime: 99
-  bulletSoundName: 
   bulletSoundClip: {fileID: 8300000, guid: 6a53ee8c99ee9d346b1bb98b23032a99, type: 3}
   bulletSoundPrefab: {fileID: 405433325789816574, guid: 10460f5fca0c3354ca80ab29d99430aa, type: 3}
   bulletSoundVolume: 0.15
@@ -579,10 +568,9 @@ MonoBehaviour:
   isOrbit: 0
   orbitAngle: 0
   orbitStopTime: 99
-  bulletSoundName: Thunder -6
   bulletSoundClip: {fileID: 8300000, guid: fdec045a9e30b2e4987637a5f227905e, type: 3}
   bulletSoundPrefab: {fileID: 405433325789816574, guid: 10460f5fca0c3354ca80ab29d99430aa, type: 3}
-  bulletSoundVolume: 0.8
+  bulletSoundVolume: 0.4
 --- !u!114 &4682172407207250387
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -609,7 +597,6 @@ MonoBehaviour:
   isOrbit: 0
   orbitAngle: 0
   orbitStopTime: 99
-  bulletSoundName: EnemyBullet
   bulletSoundClip: {fileID: 8300000, guid: 6a53ee8c99ee9d346b1bb98b23032a99, type: 3}
   bulletSoundPrefab: {fileID: 405433325789816574, guid: 10460f5fca0c3354ca80ab29d99430aa, type: 3}
   bulletSoundVolume: 0.15
@@ -671,10 +658,9 @@ MonoBehaviour:
   isOrbit: 0
   orbitAngle: 0
   orbitStopTime: 99
-  bulletSoundName: Thunder -9
   bulletSoundClip: {fileID: 8300000, guid: fdec045a9e30b2e4987637a5f227905e, type: 3}
   bulletSoundPrefab: {fileID: 405433325789816574, guid: 10460f5fca0c3354ca80ab29d99430aa, type: 3}
-  bulletSoundVolume: 0.8
+  bulletSoundVolume: 0.4
 --- !u!114 &4682172407342195580
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -701,7 +687,6 @@ MonoBehaviour:
   isOrbit: 0
   orbitAngle: 0
   orbitStopTime: 99
-  bulletSoundName: EnemyBullet
   bulletSoundClip: {fileID: 8300000, guid: 6a53ee8c99ee9d346b1bb98b23032a99, type: 3}
   bulletSoundPrefab: {fileID: 405433325789816574, guid: 10460f5fca0c3354ca80ab29d99430aa, type: 3}
   bulletSoundVolume: 0.15
@@ -763,10 +748,9 @@ MonoBehaviour:
   isOrbit: 0
   orbitAngle: 0
   orbitStopTime: 99
-  bulletSoundName: Thunder 9
   bulletSoundClip: {fileID: 8300000, guid: fdec045a9e30b2e4987637a5f227905e, type: 3}
   bulletSoundPrefab: {fileID: 405433325789816574, guid: 10460f5fca0c3354ca80ab29d99430aa, type: 3}
-  bulletSoundVolume: 0.8
+  bulletSoundVolume: 0.4
 --- !u!114 &4682172407371361438
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -793,7 +777,6 @@ MonoBehaviour:
   isOrbit: 0
   orbitAngle: 0
   orbitStopTime: 99
-  bulletSoundName: EnemyBullet
   bulletSoundClip: {fileID: 8300000, guid: 6a53ee8c99ee9d346b1bb98b23032a99, type: 3}
   bulletSoundPrefab: {fileID: 405433325789816574, guid: 10460f5fca0c3354ca80ab29d99430aa, type: 3}
   bulletSoundVolume: 0.15
@@ -899,7 +882,6 @@ MonoBehaviour:
   isOrbit: 0
   orbitAngle: 0
   orbitStopTime: 99
-  bulletSoundName: EnemyBullet
   bulletSoundClip: {fileID: 0}
   bulletSoundPrefab: {fileID: 0}
   bulletSoundVolume: 0.15
@@ -961,10 +943,9 @@ MonoBehaviour:
   isOrbit: 0
   orbitAngle: 0
   orbitStopTime: 99
-  bulletSoundName: Thunder 9
   bulletSoundClip: {fileID: 8300000, guid: fdec045a9e30b2e4987637a5f227905e, type: 3}
   bulletSoundPrefab: {fileID: 405433325789816574, guid: 10460f5fca0c3354ca80ab29d99430aa, type: 3}
-  bulletSoundVolume: 0.8
+  bulletSoundVolume: 0.4
 --- !u!114 &4682172407441752458
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -991,7 +972,6 @@ MonoBehaviour:
   isOrbit: 0
   orbitAngle: 0
   orbitStopTime: 99
-  bulletSoundName: EnemyBullet
   bulletSoundClip: {fileID: 8300000, guid: 6a53ee8c99ee9d346b1bb98b23032a99, type: 3}
   bulletSoundPrefab: {fileID: 405433325789816574, guid: 10460f5fca0c3354ca80ab29d99430aa, type: 3}
   bulletSoundVolume: 0.15
@@ -1053,10 +1033,9 @@ MonoBehaviour:
   isOrbit: 0
   orbitAngle: 0
   orbitStopTime: 99
-  bulletSoundName: Thunder -3
   bulletSoundClip: {fileID: 8300000, guid: fdec045a9e30b2e4987637a5f227905e, type: 3}
   bulletSoundPrefab: {fileID: 405433325789816574, guid: 10460f5fca0c3354ca80ab29d99430aa, type: 3}
-  bulletSoundVolume: 0.8
+  bulletSoundVolume: 0.4
 --- !u!114 &4682172407588253404
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1083,7 +1062,6 @@ MonoBehaviour:
   isOrbit: 0
   orbitAngle: 0
   orbitStopTime: 99
-  bulletSoundName: EnemyBullet
   bulletSoundClip: {fileID: 8300000, guid: 6a53ee8c99ee9d346b1bb98b23032a99, type: 3}
   bulletSoundPrefab: {fileID: 405433325789816574, guid: 10460f5fca0c3354ca80ab29d99430aa, type: 3}
   bulletSoundVolume: 0.15
@@ -1145,10 +1123,9 @@ MonoBehaviour:
   isOrbit: 0
   orbitAngle: 0
   orbitStopTime: 99
-  bulletSoundName: Thunder -6
   bulletSoundClip: {fileID: 8300000, guid: fdec045a9e30b2e4987637a5f227905e, type: 3}
   bulletSoundPrefab: {fileID: 405433325789816574, guid: 10460f5fca0c3354ca80ab29d99430aa, type: 3}
-  bulletSoundVolume: 0.8
+  bulletSoundVolume: 0.4
 --- !u!114 &4682172407665499482
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1175,7 +1152,6 @@ MonoBehaviour:
   isOrbit: 0
   orbitAngle: 0
   orbitStopTime: 99
-  bulletSoundName: EnemyBullet
   bulletSoundClip: {fileID: 8300000, guid: 6a53ee8c99ee9d346b1bb98b23032a99, type: 3}
   bulletSoundPrefab: {fileID: 405433325789816574, guid: 10460f5fca0c3354ca80ab29d99430aa, type: 3}
   bulletSoundVolume: 0.15
@@ -1237,10 +1213,9 @@ MonoBehaviour:
   isOrbit: 0
   orbitAngle: 0
   orbitStopTime: 99
-  bulletSoundName: Thunder 6
   bulletSoundClip: {fileID: 8300000, guid: fdec045a9e30b2e4987637a5f227905e, type: 3}
   bulletSoundPrefab: {fileID: 405433325789816574, guid: 10460f5fca0c3354ca80ab29d99430aa, type: 3}
-  bulletSoundVolume: 0.8
+  bulletSoundVolume: 0.4
 --- !u!114 &4682172407932845134
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1267,7 +1242,6 @@ MonoBehaviour:
   isOrbit: 0
   orbitAngle: 0
   orbitStopTime: 99
-  bulletSoundName: EnemyBullet
   bulletSoundClip: {fileID: 8300000, guid: 6a53ee8c99ee9d346b1bb98b23032a99, type: 3}
   bulletSoundPrefab: {fileID: 405433325789816574, guid: 10460f5fca0c3354ca80ab29d99430aa, type: 3}
   bulletSoundVolume: 0.15
@@ -1329,10 +1303,9 @@ MonoBehaviour:
   isOrbit: 0
   orbitAngle: 0
   orbitStopTime: 99
-  bulletSoundName: Thunder 6
   bulletSoundClip: {fileID: 8300000, guid: fdec045a9e30b2e4987637a5f227905e, type: 3}
   bulletSoundPrefab: {fileID: 405433325789816574, guid: 10460f5fca0c3354ca80ab29d99430aa, type: 3}
-  bulletSoundVolume: 0.8
+  bulletSoundVolume: 0.4
 --- !u!114 &4682172408090241114
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1359,7 +1332,6 @@ MonoBehaviour:
   isOrbit: 0
   orbitAngle: 0
   orbitStopTime: 99
-  bulletSoundName: EnemyBullet
   bulletSoundClip: {fileID: 8300000, guid: 6a53ee8c99ee9d346b1bb98b23032a99, type: 3}
   bulletSoundPrefab: {fileID: 405433325789816574, guid: 10460f5fca0c3354ca80ab29d99430aa, type: 3}
   bulletSoundVolume: 0.15

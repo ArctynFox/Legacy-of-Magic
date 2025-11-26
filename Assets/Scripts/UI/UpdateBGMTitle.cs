@@ -8,7 +8,6 @@ public class UpdateBGMTitle : MonoBehaviour
     bool hasUpdated = false;
     public string bossTrackTitle;
 
-    // Update is called once per frame
     void FixedUpdate()
     {
         if (hasUpdated)

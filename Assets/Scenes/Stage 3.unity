@@ -1352,8 +1352,6 @@ MonoBehaviour:
   pauseMenu: {fileID: 885105676}
   continueMenu: {fileID: 1628580041}
   gameOverMenu: {fileID: 1204003554}
-  menuSceneName: Title Screen
-  restartSceneName: Stage 1
   firstSelected: {fileID: 1327838169}
 --- !u!114 &321106957
 MonoBehaviour:
@@ -3025,7 +3023,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1928dda922fa95b458cb39a1e807ec52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bossTrackTitle: The Twelfth Liutenant Doesn't Slack Off
+  bossTrackTitle: Something Isn't Right
 --- !u!114 &784020536
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6362,6 +6360,7 @@ GameObject:
   - component: {fileID: 1766545116}
   - component: {fileID: 1766545118}
   - component: {fileID: 1766545117}
+  - component: {fileID: 1766545119}
   m_Layer: 5
   m_Name: BGM Indicator Glyph
   m_TagString: Untagged
@@ -6431,6 +6430,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1766545115}
   m_CullTransparentMesh: 1
+--- !u!114 &1766545119
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1766545115}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1928dda922fa95b458cb39a1e807ec52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bossTrackTitle: Something Isn't Right
 --- !u!1 &1776093105
 GameObject:
   m_ObjectHideFlags: 0
