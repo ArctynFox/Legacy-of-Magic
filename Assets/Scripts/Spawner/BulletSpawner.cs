@@ -91,12 +91,12 @@ public class BulletSpawner : MonoBehaviour
 
     //プレイヤーのGameObjectの参照
     GameObject player;
-    
+
     void Start()
     {
         //最初の発射までのフレーム数を計算
         framesSinceLastSpawn = (int)-Mathf.Floor(secondsBeforeFirstSpawn * (int)(1 / Time.fixedDeltaTime));//controls how long it will be until the first round of bullets is instantiated, used later
-        
+
         //shootAtPlayerがtrueだったらプレイヤーを狙う
         player = PlayerController.singleton.gameObject;
         if (shootAtPlayer)
@@ -109,12 +109,18 @@ public class BulletSpawner : MonoBehaviour
         CalculateSpawnDetails();
     }
 
+    //spawnsPerSecond、arcCount、arcDegrees、またはarcCenterDirectionが変更された場合、
+    //directionsとspawnLocationsの値を再計算。それにより、ほかのスクリプトが実行時に
+    //発射設定を制御することができる
     void Update() //recalculates the values in directions and spawnLocations arrays if the spawns per second, arc count, degree count, or center count change. This is so these values can be updated during runtime by other scripts, allowing for ease of bullet spawn control.
     {
+        //shootAtPlayerがtrueだったらプレイヤーを狙う
         if (shootAtPlayer)
         {
             AimAtPlayer();
         }
+
+        //発射設定が変わった場合、directionsとspawnLocationsを再計算
         if(SpawnDetailsHaveChanged())
         {
             CalculateSpawnDetails();
@@ -126,6 +132,7 @@ public class BulletSpawner : MonoBehaviour
         }
     }
 
+    //spawnsPerSecondで定義された発射率で弾を発射
     void FixedUpdate()//spawns the amount of bullets necessary to fulfil the parameters provided by the public variables.
     {
         if (framesSinceLastSpawn >= framesPerSpawn)//if it has been a specified amount of frames since the previous fire barrage
