@@ -1,7 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
+//íeÇ…í«â¡Ç∑ÇÈÇ∆ÅAèdóÕÇÃâeãøÇéÛÇØÇÈ
+
+[RequireComponent(typeof(MoveDanmaku))]
 public class BulletGravity : MonoBehaviour
 {
     public float timeMultiplier = 1f;
@@ -11,10 +12,9 @@ public class BulletGravity : MonoBehaviour
 
     public Vector3 velocity;
 
-    // Update is called once per frame
     void FixedUpdate()
     {
-        velocity.y += gravity * timeMultiplier * Time.deltaTime;
-        transform.position += velocity * Time.deltaTime;
+        velocity.y += gravity * timeMultiplier * Time.fixedDeltaTime;
+        transform.position += velocity * Time.fixedDeltaTime;
     }
 }

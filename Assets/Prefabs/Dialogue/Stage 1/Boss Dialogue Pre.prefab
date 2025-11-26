@@ -98,8 +98,8 @@ MonoBehaviour:
   healthbar: {fileID: 705175439995369650, guid: 2adb660ce7f042a4ab154d5698f4b9e0, type: 3}
   boss: {fileID: 0}
   timer: {fileID: 0}
-  firstTimeLimit: 0
   bossBGM: {fileID: 4667831873205713398, guid: 884afe5b271e6cc458f3af5c7f33a7c9, type: 3}
+  firstTimeLimit: 0
   dialogueList:
   - 'You: "Liutenant! I''ve come to answer your summons."'
   - 'Liutenant: "It took you long enough, you need to get here faster when you''re

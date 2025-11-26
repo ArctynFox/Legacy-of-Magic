@@ -819,7 +819,7 @@ MonoBehaviour:
   bombSetting: 2
   bombs: 1
   continues: 5
-  stage: -1
+  stageID: -1
   sceneName: 
   score: 0
   isBoss: 0

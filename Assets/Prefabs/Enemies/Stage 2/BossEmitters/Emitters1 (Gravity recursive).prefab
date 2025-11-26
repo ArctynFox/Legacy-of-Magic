@@ -45,21 +45,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 922dd6169b764b24d806bb5f614b53d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletType: {fileID: 8697538171322719061, guid: a5f25eeb50f97b34d915652225cc1966, type: 3}
-  moveSpeed: 10
+  secondsBeforeFirstSpawn: 0
   spawnsPerSecond: 2
   bulletSpawnRadius: 0.25
+  arcCenter: 90
+  shootAtPlayer: 0
   arcCount: 4
   arcDegrees: 50
-  arcCenter: 90
+  lineCount: 1
+  deltaSpeed: 1
+  bulletType: {fileID: 8697538171322719061, guid: a5f25eeb50f97b34d915652225cc1966, type: 3}
+  moveSpeed: 10
   isOrbit: 0
   orbitAngle: 0
   orbitStopTime: 99
-  shootAtPlayer: 0
-  lineCount: 1
-  deltaSpeed: 1
   bulletSoundName: WaterBullet
-  secondsBeforeFirstSpawn: 0
+  bulletSoundClip: {fileID: 8300000, guid: 08d778238b9a4ff44937ed4c36b7b533, type: 3}
+  bulletSoundPrefab: {fileID: 405433325789816574, guid: 10460f5fca0c3354ca80ab29d99430aa, type: 3}
+  bulletSoundVolume: 0.8
 --- !u!114 &9190458490111431172
 MonoBehaviour:
   m_ObjectHideFlags: 0

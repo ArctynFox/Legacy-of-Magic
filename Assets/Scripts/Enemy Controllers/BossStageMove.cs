@@ -1,44 +1,48 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+
+//ボス戦地面のGameObjectに追加すると、ボスが表れたら、距離フォグの範囲に入る
 
 public class BossStageMove : MonoBehaviour
 {
-
+    //普通地面の参照
+    [Tooltip("Object references to the stage's normal ground objects.")]
     public GameObject[] paths = new GameObject[3];
 
-    public Vector3 movement = new Vector3(-.5f, 0, 0);
+    //ボス戦地面はもう最も遠い普通地面の一番端に転移されたかどうか
     bool fixLocation = false;
+
+    //地面GameObjectの設定された長さ
+    const float PATH_LENGTH = 40f;
 
     void FixedUpdate()
     {
-        if (!Parameters.singleton.isBoss)
+        //ボスがまだ現れていないなら何もしない
+        if(!Parameters.singleton.isBoss)
         {
-            if (transform.position.x >= -120)
-            {
-                transform.position = transform.position + new Vector3(-40f, 0, 0);
-            }
-            transform.position = transform.position - (movement * Time.fixedDeltaTime);
+            return;
         }
-        else
+
+        //まだ転移しなかったら転移
+        if (!fixLocation)
         {
-            if (!fixLocation)
+            //最も遠い普通地面の一番端に転移
+            float basePos = 0;
+            foreach(GameObject path in paths)
             {
-                float basePos = 0;
-                foreach(GameObject path in paths)
+                if(path.transform.position.x - 1 < basePos)
                 {
-                    if(path.transform.position.x - 1 < basePos)
-                    {
-                        basePos = path.transform.position.x - 40f;
-                    }
+                    basePos = path.transform.position.x - PATH_LENGTH;
                 }
-                transform.position = new Vector3(basePos, transform.position.y, transform.position.z);
-                fixLocation = true;
             }
-            if (transform.position.x < -40)
-            {
-                transform.position = transform.position - (movement * 8 * Time.fixedDeltaTime);
-            }
+            transform.position = new Vector3(basePos, transform.position.y, transform.position.z);
+            fixLocation = true;
+        }
+
+        //カメラに映るまで指定移動速度で近づく
+        if (transform.position.x < -PATH_LENGTH)
+        {
+            StageTerrainMove sTM = paths[0].GetComponent<StageTerrainMove>();
+            transform.position = transform.position - (Time.fixedDeltaTime * new Vector3(-sTM.movementSpeed * sTM.bossAppearMovementMultiplier, 0, 0));
         }
     }
 }

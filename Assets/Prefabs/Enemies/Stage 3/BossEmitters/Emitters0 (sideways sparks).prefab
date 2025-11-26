@@ -45,21 +45,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 922dd6169b764b24d806bb5f614b53d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletType: {fileID: 2839070650613974123, guid: 1a1c315b6bbb92749bf8481eee69ccf3, type: 3}
-  moveSpeed: 5
+  secondsBeforeFirstSpawn: 0
   spawnsPerSecond: 1
   bulletSpawnRadius: 0.25
+  arcCenter: 90
+  shootAtPlayer: 0
   arcCount: 9
   arcDegrees: 360
-  arcCenter: 90
+  lineCount: 1
+  deltaSpeed: 1
+  bulletType: {fileID: 2839070650613974123, guid: 1a1c315b6bbb92749bf8481eee69ccf3, type: 3}
+  moveSpeed: 5
   isOrbit: 1
   orbitAngle: -15
   orbitStopTime: 99
-  shootAtPlayer: 0
-  lineCount: 1
-  deltaSpeed: 1
   bulletSoundName: ElectricBullet
-  secondsBeforeFirstSpawn: 0
+  bulletSoundClip: {fileID: 8300000, guid: 181a954092d809f40a74be92a3be095a, type: 3}
+  bulletSoundPrefab: {fileID: 405433325789816574, guid: 10460f5fca0c3354ca80ab29d99430aa, type: 3}
+  bulletSoundVolume: 0.35
 --- !u!114 &3511556370385762281
 MonoBehaviour:
   m_ObjectHideFlags: 0

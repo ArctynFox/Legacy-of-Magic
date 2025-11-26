@@ -9,6 +9,7 @@ public class StageBGM : MonoBehaviour
     AudioSource audioSource;
 
     //standard singleton pattern
+    //シングルトンパターン
     void Awake()
     {
         if (singleton != null)
@@ -27,6 +28,8 @@ public class StageBGM : MonoBehaviour
     }
 
     //public accessor for FadeAudioEnum that verifies that there is an attached audio source
+    //FadeAudioEnumを公開的にアクセスできるメソッド
+    //接続されたオーディオソースが存在することを検証し、再生する
     public void Fade(float seconds)
     {
         if (audioSource != null)
@@ -36,6 +39,7 @@ public class StageBGM : MonoBehaviour
     }
 
     //Fade the audio source from full to no volume over a specified number of seconds and then stop playback
+    //指定された秒数をかけてオーディオソースの音量を初期音量から無音までフェードアウトし、再生を停止
     IEnumerator FadeAudioEnum(float seconds)
     {
         float initialVolume = audioSource.volume;

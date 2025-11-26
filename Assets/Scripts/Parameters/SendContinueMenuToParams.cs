@@ -1,8 +1,11 @@
 using UnityEngine;
 
-public class SendContButton : MonoBehaviour
+//コンティニュー画面用
+//コンティニュー画面と最初にホバー状態にあるボタンをパラメタースクリプトに送って自分を無効にする
+
+public class SendContinueMenuToParams : MonoBehaviour
 {
-    private void Awake()
+    void Awake()
     {
         Parameters.singleton.continueFirstButton = gameObject;
         Parameters.singleton.continueScreen = transform.parent.gameObject;
