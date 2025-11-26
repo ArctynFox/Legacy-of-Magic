@@ -1,6 +1,6 @@
 using UnityEngine;
 
-//Input System‚ÌŠÇ—ƒVƒ“ƒOƒ‹ƒgƒ“
+//Input Systemã®ç®¡ç†ã‚·ãƒ³ã‚°ãƒ«ãƒˆãƒ³
 
 public class InputManager : MonoBehaviour
 {
