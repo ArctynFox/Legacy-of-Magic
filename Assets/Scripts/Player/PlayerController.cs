@@ -4,28 +4,40 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
+    //シングルトン
     public static PlayerController singleton;
 
+    //プレイヤー操作InputAction
     InputAction fire;
     InputAction bomb;
     InputAction movementInput;
     InputAction focus;
 
-    public float moveSpeed = 7f;
+    //移動速度------------------
+    //現在速度
+    float moveSpeed = 7f;
+    //普通速度
+    [Tooltip("Normal movement speed.")]
     public float moveSpeedNormal = 7f;
+    //フォーカス速度
+    [Tooltip("Focused movement speed.")]
     public float moveSpeedFocused = 3.5f;
+    //-------------------------
 
+    //プレイヤーの弾スポナー参照
+    [Tooltip("References to the player's bullet spawners.")]
     public GameObject emitter;
     public GameObject emitter2;
     public GameObject emitter3;
-    public GameObject spell;
-    //public bool firingDisabled = false;
-    //public bool isPostBoss = false;
-    //bool spellCooldown = false;
-    //int framesSinceEnemyCardStart = 0;
 
+    //スペルカードプレハブ
+    [Tooltip("The prefab to spawn when the spellcard button is pressed.")]
+    public GameObject spell;
+
+    //移動ベクトル
     Vector3 movementVector;
 
+    //ロードの際
     private void Awake()
     {
         if (singleton != null)
@@ -34,6 +46,7 @@ public class PlayerController : MonoBehaviour
         } else singleton = this;
     }
 
+    //削除の際
     private void OnDestroy()
     {
         if (singleton == this)
@@ -42,6 +55,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    //発射開始
     void EnableEmitters()
     {
         emitter.SetActive(true);
@@ -49,6 +63,7 @@ public class PlayerController : MonoBehaviour
         emitter3.SetActive(true);
     }
 
+    //発射停止
     void DisableEmitters()
     {
         emitter.SetActive(false);
@@ -56,6 +71,7 @@ public class PlayerController : MonoBehaviour
         emitter3.SetActive(false);
     }
 
+    //入力機能管理
     //Input action handling----------------------------------------
     private void OnEnable()
     {
@@ -68,6 +84,7 @@ public class PlayerController : MonoBehaviour
         DisableAllInputActions();
     }
 
+    //全てのInputActionをセットアップ
     void SetupAllInputActions()
     {
         fire = InputManager.inputActions.Default.Fire;
@@ -76,6 +93,7 @@ public class PlayerController : MonoBehaviour
         focus = InputManager.inputActions.Default.Focus;
     }
 
+    //入力有効
     public void EnableAllInputActions()
     {
         EnableDestructiveInputActions();
@@ -83,18 +101,21 @@ public class PlayerController : MonoBehaviour
         
     }
 
+    //入力無効
     public void DisableAllInputActions()
     {
         DisableDestructiveInputActions();
         DisableMovementActions();
     }
 
+    //発射とスペルカード入力有効
     public void EnableDestructiveInputActions()
     {
         EnableFireAction();
         EnableBombAction();
     }
 
+    //発射とスペルカード入力無効
     public void DisableDestructiveInputActions()
     {
         DisableFireAction();
@@ -102,6 +123,7 @@ public class PlayerController : MonoBehaviour
         DisableEmitters();
     }
 
+    //移動入力有効
     public void EnableMovementActions()
     {
         focus.performed += OnFocusPressed;
@@ -110,6 +132,7 @@ public class PlayerController : MonoBehaviour
         movementInput.Enable();
     }
 
+    //移動入力無効
     public void DisableMovementActions()
     {
         focus.performed -= OnFocusPressed;
@@ -118,6 +141,7 @@ public class PlayerController : MonoBehaviour
         movementInput.Disable();
     }
 
+    //発射入力有効
     void EnableFireAction()
     {
         fire.performed += OnFirePressed;
@@ -125,6 +149,7 @@ public class PlayerController : MonoBehaviour
         fire.Enable();
     }
 
+    //発射入力無効
     void DisableFireAction()
     {
         fire.performed -= OnFirePressed;
@@ -132,45 +157,53 @@ public class PlayerController : MonoBehaviour
         fire.Disable();
     }
 
+    //スペルカード入力有効
     void EnableBombAction()
     {
         bomb.performed += OnBombPressed;
         bomb.Enable();
     }
 
+    //スペルカード入力無効
     void DisableBombAction()
     {
         bomb.performed -= OnBombPressed;
         bomb.Disable();
     }
 
+    //発射ボタンを押したら
     void OnFirePressed(InputAction.CallbackContext callbackContext)
     {
         EnableEmitters();
     }
 
+    //発射ボタンを離したら
     void OnFireReleased(InputAction.CallbackContext callbackContext) {
         DisableEmitters();
     }
 
+    //スペルカードボタンを押したら
     void OnBombPressed(InputAction.CallbackContext callbackContext)
     {
-        //
-        //if(!spellCooldown && Parameters.singleton.bombs >= 0)
+        //スペルカードが残っているかを確認
         if(Parameters.singleton.bombs >= 0)
         {
+            //スペルカードを起動
             Instantiate(spell, transform);
             Parameters.singleton.bombs--;
             Parameters.singleton.updateBombDisplay();
+            //プレイヤーを一旦無敵にする
             StartCoroutine(BombInvulnerability());
         }
     }
 
+    //フォーカスボタンを押したら
     void OnFocusPressed(InputAction.CallbackContext callbackContext)
     {
         moveSpeed = moveSpeedFocused;
     }
 
+    //フォーカスボタンを離したら
     void OnFocusReleased(InputAction.CallbackContext callbackContext)
     {
         moveSpeed = moveSpeedNormal;
@@ -178,9 +211,11 @@ public class PlayerController : MonoBehaviour
 
     void Update() 
     {
+        //移動入力を読み取る
         //read the value from the movement input action
         movementVector = movementInput.ReadValue<Vector2>();
 
+        //プレイヤーの位置を画面内に制限
         //constrain player position to the visible play area
         if ((transform.position.x <= -11.5f && movementVector.x < 0) || (transform.position.x > 11.5f && movementVector.x > 0))
         {
@@ -191,32 +226,30 @@ public class PlayerController : MonoBehaviour
             movementVector.y = 0;
         }
 
+        //移動を正気化
         movementVector.Normalize();
-        
     }
 
     void FixedUpdate() //movement
     {
-        transform.position += movementVector * moveSpeed * Time.fixedDeltaTime;
-
-        /*if (!fire.enabled && !isPostBoss)
-        {
-            if(framesSinceEnemyCardStart >= 100)
-            {
-                EnableDestructiveInputActions();
-                framesSinceEnemyCardStart = 0;
-            }
-            framesSinceEnemyCardStart++;
-        }*/
+        //移動する
+        transform.position += moveSpeed * Time.fixedDeltaTime * movementVector;
     }
+    //入力機能管理終わり
     //Input action handling END----------------------------------
 
+    //スペルカードの一旦無敵機能
     IEnumerator BombInvulnerability()
     {
+        //無敵にする
         GetComponent<PlayerCollision>().isColliding = true;
+        //スペルカードのクールダウンを開始
         DisableBombAction();
+        //指定秒数を待つ
         yield return new WaitForSeconds(2f);
+        //無敵状態を解除
         GetComponent<PlayerCollision>().isColliding = false;
+        //スペルカードのクールダウンを終了
         EnableBombAction();
     }
 }

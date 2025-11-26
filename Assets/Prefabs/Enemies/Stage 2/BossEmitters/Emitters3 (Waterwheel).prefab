@@ -43,21 +43,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 922dd6169b764b24d806bb5f614b53d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletType: {fileID: 1607346629277606313, guid: 233cc055f79e5234796175cd6315b776, type: 3}
-  moveSpeed: 0.5
+  secondsBeforeFirstSpawn: 0
   spawnsPerSecond: 0.125
   bulletSpawnRadius: 0.25
+  arcCenter: 90
+  shootAtPlayer: 1
   arcCount: 8
   arcDegrees: 360
-  arcCenter: 90
+  lineCount: 1
+  deltaSpeed: 1
+  bulletType: {fileID: 1607346629277606313, guid: 233cc055f79e5234796175cd6315b776, type: 3}
+  moveSpeed: 0.5
   isOrbit: 1
   orbitAngle: 20
   orbitStopTime: 99
-  shootAtPlayer: 1
-  lineCount: 1
-  deltaSpeed: 1
   bulletSoundName: BubbleBullet
-  secondsBeforeFirstSpawn: 0
+  bulletSoundClip: {fileID: 8300000, guid: 57ad95022d27c4e4e818294b3ca1cd35, type: 3}
+  bulletSoundPrefab: {fileID: 405433325789816574, guid: 10460f5fca0c3354ca80ab29d99430aa, type: 3}
+  bulletSoundVolume: 0.8
 --- !u!1 &7353257901525995957
 GameObject:
   m_ObjectHideFlags: 0
@@ -103,21 +106,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 922dd6169b764b24d806bb5f614b53d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletType: {fileID: 7037942172580038254, guid: 06db29a2c76cf2a4e87ec94d0257cad0, type: 3}
-  moveSpeed: 3
+  secondsBeforeFirstSpawn: 0
   spawnsPerSecond: 8
   bulletSpawnRadius: 0.25
+  arcCenter: -90
+  shootAtPlayer: 0
   arcCount: 8
   arcDegrees: 360
-  arcCenter: -90
+  lineCount: 1
+  deltaSpeed: 1
+  bulletType: {fileID: 7037942172580038254, guid: 06db29a2c76cf2a4e87ec94d0257cad0, type: 3}
+  moveSpeed: 3
   isOrbit: 1
   orbitAngle: 10
   orbitStopTime: 99
-  shootAtPlayer: 0
-  lineCount: 1
-  deltaSpeed: 1
   bulletSoundName: RainBullet
-  secondsBeforeFirstSpawn: 0
+  bulletSoundClip: {fileID: 8300000, guid: 06d13456f9f97a242a3f6abb510a122b, type: 3}
+  bulletSoundPrefab: {fileID: 405433325789816574, guid: 10460f5fca0c3354ca80ab29d99430aa, type: 3}
+  bulletSoundVolume: 0.8
 --- !u!114 &7353257901525995958
 MonoBehaviour:
   m_ObjectHideFlags: 0

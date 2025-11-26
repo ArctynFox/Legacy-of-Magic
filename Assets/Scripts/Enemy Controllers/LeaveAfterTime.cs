@@ -1,25 +1,30 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+
+//指定秒数の後、画面を去る
 
 public class LeaveAfterTime : MonoBehaviour
 {
-    float framesSinceSpawn = 0;
+    //スポーンから去るまでの秒数
     public float secondsUntilLeave = 10f;
+
+    //去る移動速度
     public float moveSpeed = 1f;
+
+    //スポーンからのフレーム数
+    float framesSinceSpawn = 0;
+    //スポーンから去るまでのフレーム数
     float framesUntilLeave;
-    // Start is called before the first frame update
+
     void Start()
     {
-        framesUntilLeave = secondsUntilLeave * 50;
+        framesUntilLeave = secondsUntilLeave * (int)(1 / Time.fixedDeltaTime);
     }
 
-    // Update is called once per frame
     void FixedUpdate()
     {
         if(framesSinceSpawn >= framesUntilLeave)
         {
-            transform.position += -Vector3.up * moveSpeed * Time.fixedDeltaTime;
+            transform.position += moveSpeed * Time.fixedDeltaTime * -Vector3.up;
         }
         framesSinceSpawn++;
     }

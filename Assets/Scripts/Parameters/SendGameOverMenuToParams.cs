@@ -1,6 +1,9 @@
 using UnityEngine;
 
-public class SendGameOverButton : MonoBehaviour
+//ゲームオーバー画面用
+//ゲームオーバー画面と最初にホバー状態にあるボタンをパラメタースクリプトに送って自分を無効にする
+
+public class SendGameOverMenuToParams : MonoBehaviour
 {
     private void Awake()
     {

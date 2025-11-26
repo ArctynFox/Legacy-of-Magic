@@ -1,25 +1,25 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+//画面上のHPゲージをボスの現在のHPで更新
+
 public class GetBossHealth : MonoBehaviour
 {
-
+    //HPゲージのボス
     public GameObject boss;
-    BossCollision bossStats;
+    BossController bossController;
+
+    //HPゲージ参照
     public Slider healthbar;
-    // Start is called before the first frame update
+    
     void Start()
     {
-        //boss = GameObject.Find("Boss");
-        bossStats = boss.GetComponent<BossCollision>();
-        healthbar.maxValue = bossStats.maxHealth;
+        bossController = boss.GetComponent<BossController>();
+        healthbar.maxValue = bossController.maxHealth;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        healthbar.value = bossStats.health;
+        healthbar.value = bossController.health;
     }
 }

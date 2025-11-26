@@ -13,9 +13,7 @@ GameObject:
   - component: {fileID: 3712833307673234328}
   - component: {fileID: 2975683441649754229}
   - component: {fileID: 373704455671652549}
-  - component: {fileID: 2829324843696256230}
   - component: {fileID: 3776166535644737306}
-  - component: {fileID: 3544428472014472786}
   - component: {fileID: 7520367724723223233}
   - component: {fileID: 1699388199057584163}
   m_Layer: 1
@@ -138,23 +136,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &2829324843696256230
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8222586542786819397}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 92c2de7b55cba0941822648a6acaa566, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  firedFrom: {fileID: 0}
-  offsetAngle: 15
-  isOrbit: 0
-  angleZeroSpeed: 0.125
-  stopTime: 1
 --- !u!58 &3776166535644737306
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -171,23 +152,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 3
---- !u!114 &3544428472014472786
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8222586542786819397}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a0ad27cbee80e54f81858a04a53a2d2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  timeMultiplier: 1
-  endDegree: -90
-  movementScript: {fileID: 2975683441649754229}
-  gravity: -9.81
-  velocity: {x: 0, y: 0, z: 0}
 --- !u!114 &7520367724723223233
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -200,24 +164,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 922dd6169b764b24d806bb5f614b53d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletType: {fileID: 8796589397641942734, guid: 354c6565f2a17554993402832e95f2c3, type: 3}
-  moveSpeed: 10
+  secondsBeforeFirstSpawn: 1.5
   spawnsPerSecond: 1
   bulletSpawnRadius: 0.25
+  arcCenter: 90
+  shootAtPlayer: 1
   arcCount: 17
   arcDegrees: 360
-  arcCenter: 90
+  lineCount: 1
+  deltaSpeed: 1
+  bulletType: {fileID: 8796589397641942734, guid: 354c6565f2a17554993402832e95f2c3, type: 3}
+  moveSpeed: 10
   isOrbit: 0
   orbitAngle: 15
   orbitStopTime: 99
-  shootAtPlayer: 1
-  lineCount: 1
-  deltaSpeed: 1
   bulletSoundName: BubbleBullet
-  secondsBeforeFirstSpawn: 1.5
+  bulletSoundClip: {fileID: 8300000, guid: 08d778238b9a4ff44937ed4c36b7b533, type: 3}
+  bulletSoundPrefab: {fileID: 405433325789816574, guid: 10460f5fca0c3354ca80ab29d99430aa, type: 3}
+  bulletSoundVolume: 1
 --- !u!95 &1699388199057584163
 Animator:
-  serializedVersion: 3
+  serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -230,7 +197,9 @@ Animator:
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

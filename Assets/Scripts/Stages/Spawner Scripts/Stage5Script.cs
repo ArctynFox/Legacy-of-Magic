@@ -1,9 +1,11 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+
+//ステージ5の敵スポーンタイミングと位置スクリプト
 
 public class Stage5Script : MonoBehaviour
 {
+    //スポーンするプレハブ
     public GameObject boss;
     public GameObject weakEnemy;
     public GameObject moderateEnemy;
@@ -11,11 +13,13 @@ public class Stage5Script : MonoBehaviour
     public GameObject extremeEnemy;
     public GameObject mage;
 
+    //スポーンシーケンスを起動
     void Start()
     {
         StartCoroutine(EnemyTimer());
     }
 
+    //スポーンシーケンス
     IEnumerator EnemyTimer()
     {
         for(int i = 0; i<20; i++)

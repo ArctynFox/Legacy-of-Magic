@@ -149,7 +149,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 700
   scoreWeight: 5000
-  deathParticles: {fileID: 6415397389214508785, guid: 08de77296f01c954c9a1a9d56a14688c, type: 3}
+  damageParticles: {fileID: 6415397389214508785, guid: 08de77296f01c954c9a1a9d56a14688c, type: 3}
 --- !u!114 &7565366394145882066
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -236,18 +236,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 922dd6169b764b24d806bb5f614b53d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletType: {fileID: 1600483560308272872, guid: 859aa7a743bb0044ea4c82dacb0bf3eb, type: 3}
-  moveSpeed: 2
+  secondsBeforeFirstSpawn: 1
   spawnsPerSecond: 0.25
   bulletSpawnRadius: 0.25
+  arcCenter: -85
+  shootAtPlayer: 0
   arcCount: 36
   arcDegrees: 360
-  arcCenter: -85
+  lineCount: 1
+  deltaSpeed: 0.2
+  bulletType: {fileID: 1600483560308272872, guid: 859aa7a743bb0044ea4c82dacb0bf3eb, type: 3}
+  moveSpeed: 2
   isOrbit: 0
   orbitAngle: 750
   orbitStopTime: 99
-  shootAtPlayer: 0
-  lineCount: 1
-  deltaSpeed: 0.2
   bulletSoundName: EnemyBullet
-  secondsBeforeFirstSpawn: 1
+  bulletSoundClip: {fileID: 8300000, guid: 6a53ee8c99ee9d346b1bb98b23032a99, type: 3}
+  bulletSoundPrefab: {fileID: 405433325789816574, guid: 10460f5fca0c3354ca80ab29d99430aa, type: 3}
+  bulletSoundVolume: 0.15

@@ -11,9 +11,6 @@ GameObject:
   - component: {fileID: 3102452780632683607}
   - component: {fileID: 3102452780632683601}
   - component: {fileID: 3102452780632683606}
-  - component: {fileID: 6862523394082536607}
-  - component: {fileID: 4788738374114824813}
-  - component: {fileID: 2625514933462962870}
   - component: {fileID: 74844261979455029}
   - component: {fileID: 575433916931061277}
   - component: {fileID: 1666401263111585984}
@@ -70,53 +67,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 800
   scoreWeight: 10000
-  deathParticles: {fileID: 6415397389214508785, guid: 08de77296f01c954c9a1a9d56a14688c, type: 3}
---- !u!114 &6862523394082536607
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3102452780632683604}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0be334e70ce179841857354002b3297c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 1
-  direction: {x: 0, y: 0, z: 0}
---- !u!114 &4788738374114824813
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3102452780632683604}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 92c2de7b55cba0941822648a6acaa566, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  firedFrom: {fileID: 0}
-  offsetAngle: 75
-  isOrbit: 0
-  angleZeroSpeed: 0.125
-  stopTime: 1.5
---- !u!114 &2625514933462962870
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3102452780632683604}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 81983f4cf9e3c20409c3c6cf95f3b25d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveScript: {fileID: 6862523394082536607}
-  loopTime: 5
-  startTime: 4
+  damageParticles: {fileID: 6415397389214508785, guid: 08de77296f01c954c9a1a9d56a14688c, type: 3}
 --- !u!114 &74844261979455029
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -290,21 +241,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 922dd6169b764b24d806bb5f614b53d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletType: {fileID: 1600483560308272872, guid: 859aa7a743bb0044ea4c82dacb0bf3eb, type: 3}
-  moveSpeed: 8
+  secondsBeforeFirstSpawn: 3
   spawnsPerSecond: 3
   bulletSpawnRadius: 0.25
+  arcCenter: 0
+  shootAtPlayer: 0
   arcCount: 18
   arcDegrees: 360
-  arcCenter: 0
+  lineCount: 1
+  deltaSpeed: 1
+  bulletType: {fileID: 1600483560308272872, guid: 859aa7a743bb0044ea4c82dacb0bf3eb, type: 3}
+  moveSpeed: 8
   isOrbit: 1
   orbitAngle: 15
   orbitStopTime: 99
-  shootAtPlayer: 0
-  lineCount: 1
-  deltaSpeed: 1
   bulletSoundName: EnemyBullet
-  secondsBeforeFirstSpawn: 3
+  bulletSoundClip: {fileID: 8300000, guid: 6a53ee8c99ee9d346b1bb98b23032a99, type: 3}
+  bulletSoundPrefab: {fileID: 405433325789816574, guid: 10460f5fca0c3354ca80ab29d99430aa, type: 3}
+  bulletSoundVolume: 0.15
 --- !u!114 &2816561030153051651
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -331,21 +285,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 922dd6169b764b24d806bb5f614b53d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletType: {fileID: 1600483560308272872, guid: 859aa7a743bb0044ea4c82dacb0bf3eb, type: 3}
-  moveSpeed: 8
+  secondsBeforeFirstSpawn: 3
   spawnsPerSecond: 3
   bulletSpawnRadius: 0.25
+  arcCenter: -180
+  shootAtPlayer: 0
   arcCount: 18
   arcDegrees: 360
-  arcCenter: -180
+  lineCount: 1
+  deltaSpeed: 1
+  bulletType: {fileID: 1600483560308272872, guid: 859aa7a743bb0044ea4c82dacb0bf3eb, type: 3}
+  moveSpeed: 8
   isOrbit: 1
   orbitAngle: -15
   orbitStopTime: 99
-  shootAtPlayer: 0
-  lineCount: 1
-  deltaSpeed: 1
   bulletSoundName: 
-  secondsBeforeFirstSpawn: 3
+  bulletSoundClip: {fileID: 0}
+  bulletSoundPrefab: {fileID: 0}
+  bulletSoundVolume: 1
 --- !u!114 &8212969908776408330
 MonoBehaviour:
   m_ObjectHideFlags: 0

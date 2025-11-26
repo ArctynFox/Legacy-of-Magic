@@ -1,6 +1,8 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 
+//タイトル画面の全ての機能を管理するスクリプト
+
 public class TitleScreen : MonoBehaviour
 {
     public GameObject gameParameters;
@@ -11,23 +13,25 @@ public class TitleScreen : MonoBehaviour
 
     public GameObject menuFirstButton, optionsFirstButton, optionsCloseButton, manualFirstButton, manualCloseButton;
 
+    //最初にホバー状態にあるボタンを設定
     private void Start()
     {
         EventSystem.current.SetSelectedGameObject(null);
         EventSystem.current.SetSelectedGameObject(menuFirstButton);
-        
     }
 
+    //ゲームを開始
     public void StartGame()
     {
         Debug.Log("Starting game.");
-        Parameters.singleton.setLives();
+        Parameters.singleton.setCurrentLives();
         Parameters.singleton.setBombs();
-        Parameters.singleton.stage = 0;
+        Parameters.singleton.stageID = 0;
         Parameters.singleton.score = 0;
         Parameters.singleton.NextStage();
     }
 
+    //設定画面を開く
     public void Options()
     {
         Debug.Log("Opening Options.");
@@ -37,6 +41,7 @@ public class TitleScreen : MonoBehaviour
         EventSystem.current.SetSelectedGameObject(optionsFirstButton);
     }
 
+    //タイトル画面に戻る
     public void ReturnToMenu()
     {
         Debug.Log("Returning to menu.");
@@ -46,6 +51,7 @@ public class TitleScreen : MonoBehaviour
         EventSystem.current.SetSelectedGameObject(optionsCloseButton);
     }
 
+    //マニュアルを開く
     public void Manual()
     {
         Debug.Log("Opening manual.");
@@ -55,6 +61,7 @@ public class TitleScreen : MonoBehaviour
         EventSystem.current.SetSelectedGameObject(manualFirstButton);
     }
 
+    //タイトル画面に戻る
     public void ManualReturnToMenu()
     {
         Debug.Log("Returning to menu.");
@@ -64,6 +71,7 @@ public class TitleScreen : MonoBehaviour
         EventSystem.current.SetSelectedGameObject(manualCloseButton);
     }
 
+    //ゲームを終了
     public void QuitGame()
     {
         Debug.Log("Exiting game.");

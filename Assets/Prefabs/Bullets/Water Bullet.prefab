@@ -13,9 +13,7 @@ GameObject:
   - component: {fileID: 8915683915429517798}
   - component: {fileID: 7023290103762432523}
   - component: {fileID: 5554019472291345083}
-  - component: {fileID: 8034345336828782232}
   - component: {fileID: 8960999998302944612}
-  - component: {fileID: 8722394522710512684}
   m_Layer: 1
   m_Name: Water Bullet
   m_TagString: Bullet
@@ -136,23 +134,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &8034345336828782232
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4188351592668997435}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 92c2de7b55cba0941822648a6acaa566, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  firedFrom: {fileID: 0}
-  offsetAngle: 15
-  isOrbit: 0
-  angleZeroSpeed: 0.125
-  stopTime: 1
 --- !u!58 &8960999998302944612
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -169,20 +150,3 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.08
---- !u!114 &8722394522710512684
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4188351592668997435}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a0ad27cbee80e54f81858a04a53a2d2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  timeMultiplier: 1
-  endDegree: -90
-  movementScript: {fileID: 7023290103762432523}
-  gravity: -9.81
-  velocity: {x: 0, y: 0, z: 0}

@@ -1,22 +1,21 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
+//重力にかかわった弾に追加すると、弾スポナーを利用して繰り返し二つに分裂
+
+//弾専用
+//デコレーターパターン
+[RequireComponent(typeof(MoveDanmaku))]
+[RequireComponent(typeof(BulletSpawner))]
+[RequireComponent(typeof(BulletGravity))]
 public class RecursiveBullet : MonoBehaviour
 {
     public BulletGravity gravityScript;
     public MoveDanmaku moveScript;
-    public BulletInstantiator spawnScript;
+    public BulletSpawner spawnScript;
 
+    //現在移動している方向
     Vector3 direction;
-    //Vector3 previousDirection;
 
-    private void Start()
-    {
-        //previousDirection = moveScript.direction;
-    }
-
-    // Update is called once per frame
     void FixedUpdate()
     {
         direction = moveScript.direction + gravityScript.velocity * Time.deltaTime;
