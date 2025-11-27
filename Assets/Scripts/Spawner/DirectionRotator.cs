@@ -31,7 +31,7 @@ public class DirectionRotator : MonoBehaviour
         }
         foreach(BulletSpawner current in instantiators)
         {
-            //”­ŽË•ûŒü‚ðŠJ“X
+            //”­ŽË•ûŒü‚ð‰ñ“]
             current.arcCenter += degreesPerFrame;
         }
     }
