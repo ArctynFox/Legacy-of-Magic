@@ -4,6 +4,7 @@ using UnityEngine.UI;
 //フェードアウト用
 //フェードアウトUIオブジェクトをパラメタースクリプトに送る
 
+//タイトル画面専用
 public class SendFadeToParam : MonoBehaviour
 {
     private void Start()

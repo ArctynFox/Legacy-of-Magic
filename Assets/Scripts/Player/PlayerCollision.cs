@@ -46,7 +46,7 @@ public class PlayerCollision : MonoBehaviour
                     //プレイヤーにダメージを与える
                     Parameters.singleton.playerTookDamage();
                     //スペルカード数をリセット
-                    Parameters.singleton.setBombs();
+                    Parameters.singleton.setCurrentBombs();
 
                     //敵だったら敵のHPを減少
                     if (other.gameObject.CompareTag("Enemy"))

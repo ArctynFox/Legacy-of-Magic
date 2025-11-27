@@ -133,7 +133,7 @@ public class Parameters : MonoBehaviour
     }
 
     //現在スペルカード数を設定されたスペルカード最大限に設定
-    public void setBombs()
+    public void setCurrentBombs()
     {
         bombs = bombSetting - 1;
         updateBombDisplay();

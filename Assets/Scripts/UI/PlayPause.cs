@@ -99,7 +99,7 @@ public class PlayPause : MonoBehaviour
         Debug.Log("Restarting from stage 1.");
         Parameters.singleton.score = 0;
         Parameters.singleton.setCurrentLives();
-        Parameters.singleton.setBombs();
+        Parameters.singleton.setCurrentBombs();
         Parameters.singleton.continues = 5;
         Parameters.singleton.stageID = 0;
         Parameters.singleton.NextStage();
