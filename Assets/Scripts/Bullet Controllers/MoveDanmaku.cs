@@ -13,8 +13,8 @@ public class MoveDanmaku : MonoBehaviour
     
     void FixedUpdate()
     {
-        //移動速度で移動方向に移動w
-        transform.position += direction * moveSpeed * Time.deltaTime;
+        //移動速度で移動方向に移動
+        transform.position += moveSpeed * Time.fixedDeltaTime * direction;
         //弾のグラフィックを移動方向に向ける
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
