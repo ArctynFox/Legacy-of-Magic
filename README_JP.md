@@ -14,7 +14,7 @@
 ゲームは[こちら](https://github.com/ArctynFox/Legacy-of-Magic/releases/latest)からダウンロードしてプレイできる.
 
 # コンパイル手順
-ご自身でゲームをビルドまたは編集したい場合は、Unityバージョン2020.3.49.f1を使用して行うことができる。
+自身でゲームをビルドまたは編集したい場合は、Unityバージョン2020.3.49.f1を使用して行うことができる。
 
 # スクリーンショット
 ![1](https://github.com/user-attachments/assets/2a126f0f-3620-4281-89ee-889ba719a08b)
