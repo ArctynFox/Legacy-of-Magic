@@ -1,9 +1,14 @@
+English / [日本語](/README_JP.md)
+
 # Legacy of Magic
-This game is a Touhou-inspired danmaku game using the same arcade-continue style in which you, an inquisitor of the mage association, must uncover the cause of a strange series of anachronities occuring within the kingdom. Of what nature is this disaster? Who or what may be causing it? Discover for yourself as you graze past the magic of various people and creatures in this 2.5d bullet hell!
+“Legacy of Magic” is a Touhou-inspired danmaku game using the same arcade-continue style in which you, an inquisitor of the mage association, must uncover the cause of a strange case of anachronism occurring within the kingdom. Of what nature is this disaster? Who or what may be causing it? Discover for yourself as you graze past the magic of various people and creatures in this 2.5d bullet hell!
 
-This project was developed in 8 weeks by myself, the sole developer. Only the art and some of the music was also outsourced, while some I composed myself.
+This project was developed in 10 weeks by myself, the sole developer. I composed some of the music myself, but the rest of the music as well as the art and other graphical assets used were commissioned or royalty free assets found online.
 
-[Demo video / プレイ動画](https://www.youtube.com/watch?v=mVkjVgXQ0Bs)
+[Demo video](https://www.youtube.com/watch?v=mVkjVgXQ0Bs)
+
+# Documentation
+Documentation for the key features and design theology of the game can be found [here](/Documentation/Legacy%20of%20Magic%20-%20Design%20Document.pdf).
 
 # Download
 The game can be downloaded and played via the [latest release](https://github.com/ArctynFox/Legacy-of-Magic/releases/latest).
