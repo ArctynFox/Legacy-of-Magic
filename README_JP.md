@@ -2,7 +2,9 @@
 
 ## 重要リンク
 [プレイ動画](https://www.youtube.com/watch?v=mVkjVgXQ0Bs)
+
 [ゲームダウンロード](https://github.com/ArctynFox/Legacy-of-Magic/releases/latest)（最新版）
+
 [技術ドキュメント](/Documentation/Legacy%20of%20Magic%20-%20Design%20Document.pdf)
 
 ※ 本作品は操作感およびシステム設計の検証を主目的として制作しているため、ゲーム内のUIおよびテキストは英語表記となっています。
